@@ -1,0 +1,11 @@
+name: Idea
+description: Something you would like villagers to do.
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What villagers would do, and how you would set it up in your village.
+    validations:
+      required: true

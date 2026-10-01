@@ -1,0 +1,14 @@
+<script>
+  /* The profession pages list tools, consumables, suppliers and customers in tables right after a
+     bold label such as "Tools:". Those tables have no header: their first Markdown row is data, so
+     they are marked here and drawn with every row alike (_sass/custom/custom.scss). Block comments
+     only: the theme joins the page onto one line, which a line comment would swallow. */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.main-content p').forEach(function (p) {
+      var label = p.firstChild;
+      if (!label || label.nodeName !== 'STRONG' || !/:\s*$/.test(label.textContent)) return;
+      var next = p.nextElementSibling;
+      if (next && next.classList.contains('table-wrapper')) next.classList.add('vaw-headerless');
+    });
+  });
+</script>

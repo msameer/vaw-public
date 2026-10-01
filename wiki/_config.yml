@@ -1,0 +1,27 @@
+# The published wiki of Villagers at Work, copied here from the mod's repository with each release.
+# Edit it there, not here: a release replaces this folder.
+title: Villagers at Work
+description: Bring life to villager professions through automation.
+baseurl: /vaw-public
+url: https://msameer.github.io
+
+remote_theme: just-the-docs/just-the-docs@v0.12.0
+plugins:
+  - jekyll-remote-theme
+
+# GitHub's own Markdown, so pages render here as they do on GitHub: kramdown drops a table with a
+# header row and no others, which is how the wiki lists a single tool or supplier.
+markdown: CommonMarkGhPages
+commonmark:
+  options: ["SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+
+color_scheme: light
+search_enabled: true
+heading_anchors: true
+back_to_top: true
+back_to_top_text: Back to top
+footer_content: Villagers at Work — a Fabric mod for Minecraft.
+
+# The source is in a private repository, so there is no "edit this page" link for visitors.
+gh_edit_link: false

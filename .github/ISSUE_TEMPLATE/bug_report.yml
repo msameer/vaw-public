@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in Villagers at Work does not work as the wiki says it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What the villagers did, and what you expected them to do. Screenshots help.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to see it
+      description: The setup, step by step, so it can be built and watched again.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Villagers at Work version
+      placeholder: e.g. 1.0.3
+    validations:
+      required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft version
+      placeholder: e.g. 26.2
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods and resource packs
+      description: Especially MCA Reborn, Farmer's Delight, and model packs such as Fresh Animations or Human Era.
