@@ -10,6 +10,8 @@ Fishes from nearby rivers or oceans. Supplies half the village from the junk it 
 
 **Half of what it catches is junk**, against about one catch in ten for a player, because the junk — string, sticks, leather, bones, bowls — is what the village needs from it. `fishingJunkChance` sets how much; your own fishing is unchanged.
 
+**With Villagers after Work installed**, after work it cooks fish for the village at the campfires near it, from the catch it kept back (see [Villagers after Work]({{ site.baseurl }}{% link after-work.md %})).
+
 It makes its own fishing rods, so it needs nothing from anyone. A rod is all it needs to fish; sticks and string are only what it makes the next one from, and it keeps itself stocked with them out of its own catch.
 
 **Tools:**

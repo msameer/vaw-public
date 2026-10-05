@@ -29,6 +29,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:storage_targets` | Village storage when standing alone, and a terminal when touching a workstation. The block must hold items. | `#minecraft:copper_chests` |
 | `vaw:workstation_containers` | Workstations with an inventory of their own: villagers deposit into it, haulers empty it. | Barrel |
 | `vaw:leash_phaseable` | Blocks a leashed animal passes through while it stays shut, such as another mod's gates. | `#minecraft:fence_gates` |
+| `vaw_after_work:seat_blocks` | With Villagers after Work: blocks a villager sits on to rest after work, and lies across two of side by side, such as another mod's chairs. A villager leans back only on a wool carpet; on any other block here it sits upright. | Carpets |
 | `vaw:keep_clear_around` | Blocks a farmer plants nothing around, on their sides or their corners, so it can walk its field without touching them, or so a stem has room for its fruit. | Cactus, melon and pumpkin stems |
 
 ### Items
@@ -40,6 +41,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:animal_feed` | What counts as feed on the butcher's shelf. Which species it feeds is set per animal by the `breeding` files below. | The vanilla foods of cows, sheep, goats, pigs, rabbits and chickens |
 | `vaw:compostable_surplus` | Seeds the farmer may compost into bone meal. Keep food out of it. | Wheat, beetroot, melon, pumpkin and torchflower seeds, pitcher pods |
 | `vaw:smeltable_ore` | Raw ores the armorer smelts. Each needs a blast furnace recipe. | Raw iron, raw gold, raw copper |
+| `vaw:armorer_ingots` | Ingots the armorer works straight from its shelf, without smelting. | Iron, gold and copper ingots |
 | `vaw:fuel` | Fuel for the armorer's blast furnace and the butcher's smoker. Vanilla decides how long each burns. | Coal and charcoal, bamboo, dried kelp blocks, blaze rods |
 | `vaw:crop_items` | Items a farmer picks up when they lie in its field. | Vanilla crops, their seeds and cuttings, and Farmer's Delight's when it is installed |
 | `vaw:villager_reserve` | What a villager keeps for itself and never deposits or delivers. The farmer and the butcher have rules of their own, and with the MCA extension MCA villagers keep only seeds. | Bread, carrots, potatoes, beetroots, wheat, and the seeds villagers plant |
@@ -50,6 +52,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | :---- | :---- | :---- |
 | `vaw:farm_animals` | Animals butchers breed and cull, and shepherds shear. | Cow, pig, sheep, goat, rabbit, chicken |
 | `vaw:shearable_override` | Other animals a shepherd may shear. They must work with vanilla shears. | Empty |
+| `vaw_after_work:seats` | With Villagers after Work: things a villager sits on to rest after work, as a player sits on a cushion. | Cushions |
 | `vaw:carryable` | Animals the butcher carries to the smoker rather than leading them. | Chicken, rabbit |
 
 > **Be careful:** many modded creatures fight back. Adding one to `vaw:farm_animals` can get your butcher killed.
@@ -94,9 +97,11 @@ One file per profession, listing groups of items in order. A missing mandatory g
 | `groups[].sets` | for `exclusive_sets` | A list of sets, each a list of members written as above. |
 | `groups[].mandatory` | no, default `true` | Whether the villager is blocked without this group. |
 | `groups[].icon` | no | The item the error icon shows when this group is missing. Must be an item, not a tag. |
-| `groups[].per_use` | no | How many of a member one piece of work uses, such as `{"minecraft:stick": 2}`: what other villagers deliver at a time. Default 1. |
-| `groups[].max` | no | How deep the slot is stocked, such as `{"minecraft:iron_ingot": 16}`. A member with a `max` above its `per_use` is a buffer: it is only asked for once it drops to half, and is then filled right back up to the `max` in one delivery. Default: the member's `per_use`, and it may never be below it. |
+| `groups[].per_use` | no | How many of a member one piece of work uses, such as `{"minecraft:stick": 2}`. Default 1. |
+| `groups[].max` | no | The member's cap: how deep the slot is stocked, such as `{"minecraft:iron_ingot": 16}`. The shelf asks for more whenever it holds less. Default: the member's `per_use`, and it may never be below it. `restockCaps` in the config overrides it per item. |
 | `groups[].keep_last` | no | `true`, or a list of members: the last item of each stack stays on the shelf, so everyone can see what the shelf is for. |
+| `groups[].needed_with` | no | A list of items or `#tags`: the group counts only while the shelf holds one of them. The armorer's fuel is needed with raw ore, and not with ingots. |
+| `groups[].never_ordered` | no | A list of members that meet the group but that no villager or trader brings: they are yours to stock. The armorer's ingots. |
 
 ```json
 {

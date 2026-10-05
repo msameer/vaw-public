@@ -10,11 +10,12 @@ plugins:
   - jekyll-remote-theme
 
 # GitHub's own Markdown, so pages render here as they do on GitHub: kramdown drops a table with a
-# header row and no others, which is how the wiki lists a single tool or supplier.
+# header row and no others, which is how the wiki lists a single tool or supplier. Unlike GitHub, it
+# keeps raw HTML, iframes included, so the Supply Chain page can embed its graph.
 markdown: CommonMarkGhPages
 commonmark:
-  options: ["SMART", "FOOTNOTES"]
-  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+  options: ["SMART", "FOOTNOTES", "UNSAFE"]
+  extensions: ["strikethrough", "autolink", "table"]
 
 color_scheme: light
 search_enabled: true

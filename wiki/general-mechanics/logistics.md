@@ -6,18 +6,32 @@ nav_order: 2
 
 # Logistics
 
-Villagers produce items as they do their job either by harvesting, fishing, crafting, or smelting. If any of their products are needed by other villagers, the villager holds the items in their internal inventory and delivers them to their customer’s shelf’s slot that needs a refill or top-up. On the way it carries the item in its hand in place of its tool, where the client jar or MCA Reborn draws it. Surplus goes to storage.  
+Villagers produce items as they do their job either by harvesting, fishing, crafting, or smelting. If any of their products are needed by other villagers, the villager holds the items in their internal inventory and delivers them to their customer’s shelf’s slot that needs a refill or top-up. On the way it carries the item in its hand in place of its tool, where the mod on a player's game, or MCA Reborn, draws it. Surplus goes to storage.  
 Harvesting and fishing are ongoing activities. Crafting and smelting are on demand.
 
-## Full Loads
+## Restocking
 
-A villager does not walk every item over as it makes it. It fills its load first and makes one trip: an armorer smelting iron carries the ingots to the toolsmith together, rather than once each. It sets off as soon as the load covers what was asked for, or when it can make no more, when its inventory is full, or when the working day ends.
+**Each shelf is filled to a cap**, the most it holds of an item, and asks for more whenever it holds less. A villager bringing an item brings as much as it carries, up to the cap.
 
-**A customer with none of the item never waits.** That villager cannot work at all, so the first delivery goes out straight away and the rest of the restock follows in one trip.
+| Customer | Item | Cap |
+| :---- | :---- | :---- |
+| Butcher | Feed | 16, on top of the one kept to say which feed |
+| Cartographer | Sugar cane | 18 |
+| Toolsmith, weaponsmith, fisherman, fletcher | Sticks | 64 |
+| Leatherworker, librarian | Leather | 64 |
+| Fisherman, fletcher | String | 64 |
+| Fletcher | Feathers | 64 |
+| Librarian | Paper | 64 |
+| Cleric | Rotten flesh | 64 |
+| Butcher, armorer | Fuel | 64 |
+| Toolsmith | Iron, copper and other tool materials | 16 |
+| Everyone else | Everything else | One job's worth |
 
-**Fuel always goes in a real load.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing. Even an armorer with no fuel at all waits for a full load.
+**A trip is worth it from the min order up.** A villager walks over only with at least that many: half the cap when the cap is 16 or more, and the whole cap below that. It holds on to a smaller amount until it has more, and never puts it in storage meanwhile. **When its inventory is full or its working day ends, it delivers whatever it has**, so a shelf that ran out is restocked by the end of the day at the latest.
 
-Some items are stocked as a buffer rather than one job's worth, and those shelves are only restocked once they fall to half — then filled right back up. Which items, and how deep, is in [Datapacks]({{ site.baseurl }}{% link customization/datapacks.md %}).
+**Fuel always goes in a real load.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing.
+
+You can change any cap or min order, per item, with `restockCaps` and `restockMinOrders` (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})).
 
 ## Villager Inventory
 

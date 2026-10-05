@@ -29,6 +29,13 @@ Every option is written into the file with its default and a comment explaining 
 | `unreachableTimeoutTicks` | `200` | 40–2400 | How long a villager keeps trying to reach a chest or shelf it cannot get to. |
 | `unreachableCooldownTicks` | `1200` | 100–24000 | How long such a chest or shelf is skipped before it is tried again. A hauling villager or an errand-running child skips it for the rest of the day instead, unless the daylight cycle is off. |
 
+### Restocking
+
+| Option | Default | Range | What it does |
+| :---- | :---- | :---- | :---- |
+| `restockCaps` | empty | 1–1024 per item | How many of an item a customer's shelf is filled to, by item id or by tag, such as `{"minecraft:wheat": 32, "#vaw:fuel": 32}`. The shelf asks for more whenever it holds less. An item's own entry wins over its tag's. An item you leave out keeps its usual cap (see *General Mechanics → Logistics*). |
+| `restockMinOrders` | `{"minecraft:coal": 1, "minecraft:charcoal": 1}` | 1–1024 per item | The least of an item a villager carries to a shelf, by item id or tag, so the walk is worth it. A smaller amount waits until it has more, its inventory is full, or work ends. An item you leave out takes half its cap when the cap is 16 or more, and the whole cap below that. |
+
 ### Service areas
 
 | Option | Default | Range | What it does |
@@ -41,12 +48,11 @@ Every option is written into the file with its default and a comment explaining 
 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
-| `productivity` | `0.7` | 0.0–1.0 | How readily a villager takes on work it has just noticed. Lower it and work piles up and gets done in its own time; raise it and villagers pounce on everything. `1.0` means every task the moment it appears and no breaks — a farmer harvests a crop on the tick it ripens, clears its field, then stands still for the rest of the day. `0.0` means a villager that never starts work at all. |
+| `productivity` | `0.7` | 0.0–1.0 | The share of its time a villager spends working while it has work to do; the rest it takes as breaks. At `0.7` it works 70% of the time, a 5-second break after about 12 seconds of work. `1.0` means every task the moment it appears and no breaks — a farmer harvests a crop on the tick it ripens, clears its field, then stands still for the rest of the day. `0.0` means a villager that never starts work at all. With the MCA extension this is what a villager in a middling mood works at; see `moodProductivity` below. |
 | `productivityOverrides` | `{}` | 0.0–1.0 per profession | Productivity for one profession, overriding the value above, for example `{"minecraft:farmer": 0.9}`. |
-| `idleTicks` | `600` | 0–24000 | How long, in ticks, a villager of productivity `0` leaves things alone — both after passing work over and while on a break. Scaled by productivity, so at `1.0` nothing is ever waited. |
-| `tasksBetweenBreaks` | `12` | 1–256 | How many tasks a villager at full productivity does before taking a break. The lazier it is, the sooner the break. At `1.0` there is no break. |
+| `breakTicks` | `100` | 20–2400 | How long, in ticks, a break from work lasts. A villager below productivity `1.0` saves up the rest it owes and takes it in breaks this long. Replaces `idleTicks` and `tasksBetweenBreaks`. |
 
-It changes how readily a villager **starts**, never how fast it works once it has, and it never paces a delivery, a deposit or a hauler. See *General Mechanics → Productivity*.
+It changes how much of its time a villager works, never how fast it works once it has, and a break never holds up a delivery, a deposit or a hauler. See *General Mechanics → Productivity*.
 
 ### Farming
 
@@ -64,10 +70,7 @@ It changes how readily a villager **starts**, never how fast it works once it ha
 | :---- | :---- | :---- | :---- |
 | `cullPauseTicks` | `40` | 0–200 | How long, in ticks, a butcher stands at its smoker with the animal before killing it. `0` kills the moment it arrives. |
 | `speciesPerAnimalWorker` | `2` | 1–8 | How many species one butcher manages. |
-| `perSpeciesFloor` | `4` | 0–64 | Culling never takes a species below this many adults. `0` lets a butcher cull a species to extinction. |
-| `breedIntervalTicks` | `6000` | 20–72000 | The least time between two breedings of the same species. The default is vanilla's own cooldown for a bred pair, five minutes. |
-| `breedIntervalOverrides` | `{}` | entity id → ticks | A breed interval per species, for example `{"minecraft:rabbit": 3000}`. |
-| `feedPerCull` | `1` | 0–16 | Feed items a breeding butcher spends on each cull. |
+| `perSpeciesFloor` | `4` | 0–64 | How many adults of each species a butcher keeps: it culls those above it once there is nothing to feed. `0` lets a butcher cull a species to extinction. |
 | `breedOnlyButchers` | `false` | true/false | Lets a butcher with feed and no culling tool breed its animals and never cull them, for a cramming farm; the toolsmith then leaves it without a tool. Off, a butcher without an axe or knife breeds nothing and shows the tool it is missing until the toolsmith makes it one. |
 | `cullingMode` | `lead_teleport` | `lead_teleport`, `lead`, `over_fence` | How a butcher gets a large animal to its smoker. `lead_teleport` walks it out through a gate that stays shut and lifts one that cannot reach the gate past it, so an animal always reaches the smoker; `lead` is the same walk without the lift, and an animal boxed into a corner by the herd is culled where it stands; `over_fence` never takes a lead at all. Small animals are carried whatever this says. |
 | `censusRescanSeconds` | `5` | 1–300 | How often an animal worker recounts the animals it manages. |
@@ -96,6 +99,19 @@ It changes how readily a villager **starts**, never how fast it works once it ha
 | `bindingRescanTicks` | `20` | 5–1200 | How often a villager re-checks the shelf and chests around its workstation. A villager with no workstation is not checked. |
 | `signalIntervalSeconds` | `4` | 1–60 | How often a villager missing more than one mandatory item repeats its angry particles. |
 
+## Villagers after Work: `config/vaw-after-work.json5`
+
+Only with the Villagers after Work jar installed. It is written and read as the core's file is.
+
+| Option | Default | Range | What it does |
+| :---- | :---- | :---- | :---- |
+| `afterWorkRange` | `32` | 8–64 | How far from itself, in blocks, a villager looks after work for campfires, jukeboxes, bells, cushions and seats. Each is a place of its own; there is no area to set up. |
+| `musicGatherers` | `6` | 1–64 | How many villagers at most stand around a playing jukebox. Once every seat, campfire side, the jukebox and the bell are full, the rest share the jukebox and the bell evenly. |
+| `bellGatherers` | `6` | 1–64 | How many villagers at most stand around a bell, as `musicGatherers` for a jukebox. |
+| `dinnerFoodKept` | `8` | 0–64 | How much food a butcher, fisherman or farmer keeps for dinner. Everything else it carries but its tools goes to storage when work ends. `0` keeps nothing, so nobody cooks at dinner and the farmer shares nothing. It replaces `eveningFoodKept`: a value you changed there is carried over. |
+| `bedtimeBreeding` | `true` | true/false | Villagers have children only at night, two well-fed villagers in beds side by side. Off, villagers breed as they do without the mod, and under MCA Reborn as MCA has them. **Turn it off to keep a villager breeder working.** |
+| `bedtimeBreedingChance` | `0.2` | 0.0–1.0 | The chance each night that such a pair has a child. |
+
 ## MCA extension: `config/villagers-at-work-mca.json`
 
 Plain JSON. An option missing from the file keeps its default, and a file that cannot be read leaves every option at its default.
@@ -111,11 +127,12 @@ Plain JSON. An option missing from the file keeps its default, and a file that c
 | `villageWindowSeconds` | `60` | The window `villageCap` counts over. |
 | `hearingRange` | `20` | How far, in blocks, a line is heard. A villager with nobody near enough to hear says nothing. |
 | `dedupeRange` | `64` | Villagers this close together count as one village, both for `villageCap` and so one cause is said once rather than by every villager. |
+| `moodProductivity` | `0.2` | How far an MCA villager's mood moves its productivity from the value set above: an overjoyed villager works at that value plus this, a miserable one at it minus this, and one in a middling mood at it exactly. `0` leaves mood out of it, so every villager of a profession works alike. From `0` to `1`. |
 | `archersUseArrows` | `true` | Archers shoot only the arrows they carry and fetch them from the fletcher's armory. Off, MCA gives archers their arrows itself, as it does without the extension, and the fletcher's arrows stay where they are. |
 
-## Client jar: `config/villagers-at-work-client.json`
+## On a player's game: `config/villagers-at-work-client.json`
 
-Only for the optional client jar, which draws the tool a villager works with in its hand. The villager uncrosses its arms to hold it, as a player holds an item, and swings it as it works. It works with model packs too: under a pack that gives villagers arms of their own, such as Human Era, with or without its Fresh Animations add-on, the tool goes in the hand the pack drew; under one that keeps the crossed arms, such as Fresh Animations, the villager's arms uncross and follow the pack's animation. Change these values only if a pack's villagers still hold the tool out of place.
+Only for the mod's client part, which a player's own game loads and a server never does. It draws the tool a villager works with in its hand. The villager uncrosses its arms to hold it, as a player holds an item, and swings it as it works. It works with model packs too: under a pack that gives villagers arms of their own, such as Human Era, with or without its Fresh Animations add-on, the tool goes in the hand the pack drew; under one that keeps the crossed arms, such as Fresh Animations, the villager's arms uncross and follow the pack's animation. Change these values only if a pack's villagers still hold the tool out of place.
 
 Under Human Era the arms belong to the pack, which animates them itself, so the villager holds its tool but never swings it, and the item it shows you while trading floats in front of its chest, where vanilla draws it from the crossed arms the pack removed. Both are fixed by the Human Era compatibility packs, `vaw-human-era.zip` and, if you use Human Era's Fresh Animations add-on, `vaw-human-era-fa.zip`. They have their own project, [Villagers at Work - Human Era Villagers Compat](https://www.curseforge.com/minecraft/texture-packs/vaw-hevi-compat), since a Human Era release means a new pack rather than a new mod release, and they go **above** Human Era in your resource pack list. Their [source is here](https://github.com/msameer/villagers-at-work-human-era). If you set `custom` values in an earlier version, when the tool stood in the villager's crossed arms, the untouched defaults are ignored and the tool simply sits in the hand.
 

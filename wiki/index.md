@@ -20,7 +20,7 @@ The result is a village that runs as a small economy.
 
 The mod shall never break existing farms and shall be safe to install or uninstall on existing worlds.
 
-**No blocks are added.** The mod adds no blocks. It just utilizes vanilla ones so it shall be **pure server side**. If any feature requires installation on the client, it shall be provided in a separate optional client jar.  
+**No blocks are added.** The mod adds no blocks. It just utilizes vanilla ones so it shall be **pure server side**. If any feature requires installation on the client, it shall be provided in a separate client part that the mod's jar carries and only a player's game loads, so a server never runs it and a player without it can still join.  
    
 **The mod invents nothing.** Villagers only make things they already trade, or things their workstation genuinely does. A blast furnace really smelts, so the armorer smelts. A cartographer really sells paper, so the cartographer makes paper. The mod is not giving villagers new powers — it is pointing existing ones at each other instead of at you.
 
