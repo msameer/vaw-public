@@ -29,7 +29,7 @@ Harvesting and fishing are ongoing activities. Crafting and smelting are on dema
 
 **A trip is worth it from the min order up.** A villager walks over only with at least that many: half the cap when the cap is 16 or more, and the whole cap below that. It holds on to a smaller amount until it has more, and never puts it in storage meanwhile. **When its inventory is full or its working day ends, it delivers whatever it has**, so a shelf that ran out is restocked by the end of the day at the latest.
 
-**Fuel always goes in a real load.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing.
+**Fuel goes in a real load during the day.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing. **When the working day ends, whatever there is goes, fuel included**: a farmer with 20 bamboo gives them to the armorer waiting for fuel rather than putting them away.
 
 You can change any cap or min order, per item, with `restockCaps` and `restockMinOrders` (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})).
 
