@@ -30,6 +30,8 @@ With MCA Reborn installed, guards stop being equipped from nowhere and start dra
 
 **A hurt guard sees to itself first.** Healing comes before gearing up: a guard below half health goes for a potion and fetches its missing armour afterwards. MCA villagers mend slowly on their own, and a well-traded villager has a far deeper health bar than a vanilla one, so after a raid a potion is worth more than a helmet. See [Healing]({{ site.baseurl }}{% link general-mechanics/healing.md %}).
 
+<iframe class="vaw-fit-frame" scrolling="no" src="{{ '/assets/supply-chain-graph-mca.html' | relative_url }}" title="MCA guards' supply chain graph" style="width:100%; height:1200px; border:0; border-radius:4px;"></iframe>
+
 ## Swordsmen
 
 - **Armour and shields** from the armorer, made from whatever ore you stock  

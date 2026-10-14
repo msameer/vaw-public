@@ -21,7 +21,7 @@ Keeps the village's bees: it **harvests honey and honeycomb** from the beehives 
 
 A hive full of honey gives a **honey bottle** whenever the beekeeper has a bottle. A water bottle is poured away first, and the bottle used. Without bottles it takes **honeycomb** with its shears.
 
-**Its bottles go round the village.** With a [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) in the village, its honey bottles go to the kitchen for meals made with honey, and the Chef, once it has four bottles for its milk, brings the other empty bottles back to the beekeeper's shelf, up to 16, whenever the shelf has room for them: a free slot, or a stack of bottles short of 16. The beekeeper never asks for bottles, so you need not put one on its shelf to start it, and it uses every bottle it is given. **Only the Chef brings it bottles**, so the bottles your villagers' potions leave behind are never filled with honey. You can put bottles on its shelf yourself too. The Chef keeps four honey bottles; the rest goes to storage. The bees are never angered, and the hive fills again at its usual pace. Honey bottles and honeycomb go to any villager that needs them, then to storage, so the honeycomb is there for you to wax copper with.
+**Its bottles go round the village.** With a [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) in the village, its honey bottles go to the kitchen for meals made with honey, and the Chef brings the empty bottles to the beekeeper's shelf, up to 16, whenever the shelf has room for them. You can put bottles on its shelf yourself too. The Chef keeps four honey bottles; the rest goes to storage. The bees are never angered, and the hive fills again at its usual pace.
 
 ## Flowers
 
@@ -37,7 +37,7 @@ It keeps **three bees for every hive** it looks after. While there is room for m
 
 ## Its clothes and hat
 
-A beekeeper wears a **canvas bee suit** with leather gloves and rubber boots, and carries a smoker on its belt. With MCA Reborn and its extension, MCA beekeepers dress the same way.
+A beekeeper wears a **canvas bee suit** with leather gloves and rubber boots, and carries a smoker on its belt (cosmetic only, not a real block). With MCA Reborn and its extension, MCA beekeepers dress the same way.
 
 It wears a **beekeeper's hat**: a wide brim and a dark veil down past the chin, over its nose. It wears it while it works: when work ends it takes it off and keeps it in its pockets, and puts it back on when work starts. The shepherd makes one from wool of any colour whenever the beekeeper has no hat, on its head or in its pockets, and puts it on the beekeeper's head itself, so a full shelf never keeps it from one. There is no spare, and the hat in its pockets is never stored. You can craft one too, from four wool of any colours, one above a row of three, and it comes out white whatever the wool; leave it on the beekeeper's shelf and a beekeeper with no hat puts it on. The hat comes off when the villager loses the job, and it never drops. With MCA Reborn and its extension, MCA beekeepers wear it too, as a helmet.
 
@@ -68,3 +68,8 @@ It buys nothing. It sells candles, beehives and blocks without making them: its 
 | [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Glass bottles: the empty ones its honey came in; and the bone meal it cuts from fish, up to 16, even before you have put any on the shelf |
 | Shepherd | Beekeeper's hats |
 | Player | Glass bottles, if you like |
+
+**Customers:**
+
+| [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Honey bottles |
+| :---- | :---- |

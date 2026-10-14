@@ -1,0 +1,47 @@
+/* The supply chain graphs (graph.js): a square stage of villagers and deliveries, and a side column. */
+* { box-sizing: border-box; }
+body { margin: 0; background: #ffffff; color: #27262b; font-family: 'Space Grotesk', system-ui, sans-serif; }
+/* Side by side only when the graph keeps most of the width; in the wiki's column it stacks, the graph first. */
+.page { padding: 40px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: 40px; align-items: start; }
+.graph-col { min-width: 0; max-width: 1000px; width: 100%; justify-self: center; }
+@media (max-width: 999px) { .page { grid-template-columns: minmax(0, 1fr); gap: 28px; } .side { max-width: none; } }
+@media (max-width: 600px) { .page { padding: 16px; } }
+.stage { position: relative; width: 100%; aspect-ratio: 1 / 1; container-type: inline-size; }
+.edges { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.edge { transition: opacity .2s; }
+.node {
+  position: absolute; cursor: pointer; width: 15%; height: 6.4%; transform: translate(-50%, -50%);
+  padding: 0.4cqw 0.6cqw; border-radius: 1cqw; border: 2px solid; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px; text-align: center; transition: opacity .2s, box-shadow .2s;
+}
+.node .name { font-size: 1.5cqw; font-weight: 600; line-height: 1.1; white-space: nowrap; }
+.node .station { font-family: 'IBM Plex Mono', monospace; font-size: 1.05cqw; line-height: 1.2; color: #6e6a75; }
+.edge-label {
+  display: none; position: absolute; pointer-events: none; white-space: nowrap; transform: translate(-50%, -50%);
+  padding: 0.1cqw 0.6cqw; border-radius: 0.3cqw; background: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 1.3cqw;
+}
+.side { min-width: 0; display: flex; flex-direction: column; gap: 28px; max-width: 420px; }
+.head { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #a86b0f; }
+.title { font-size: 40px; line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; }
+.intro { font-size: 16px; line-height: 1.5; color: #5c5962; text-wrap: pretty; }
+.panel, .legend { display: flex; flex-direction: column; padding: 22px 24px; border: 1px solid #e6e1e8; border-radius: 4px; background: #f7f7f9; }
+.panel { gap: 20px; }
+.panel[hidden] { display: none; }
+.focus { display: flex; flex-direction: column; gap: 4px; }
+.focus-name { font-size: 24px; font-weight: 700; }
+.focus-station { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6e6a75; }
+.focus-shelf { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #a86b0f; }
+.block { display: flex; flex-direction: column; gap: 10px; }
+.caps { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #6e6a75; }
+.row { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 15px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.item { color: #3f3d44; }
+.other { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6e6a75; white-space: nowrap; }
+.none { font-size: 14px; color: #8a8690; }
+.legend { gap: 11px; font-size: 14px; color: #3f3d44; }
+.legend .caps { margin-bottom: 4px; }
+.legend-row { display: flex; align-items: center; gap: 12px; }
+.swatch { width: 26px; height: 3px; flex: 0 0 auto; }
+.stock { color: #a86b0f; }
+.diamond { width: 26px; text-align: center; flex: 0 0 auto; }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>More Villagers at Work supply chain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Space+Grotesk:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="supply-chain/graph.css">
+</head>
+<body>
+<!-- More Villagers at Work's supply chain, with the vanilla professions that supply it (wiki: More Villagers at Work). -->
+<script>
+window.GRAPH = {
+  eyebrow: "More Villagers at Work",
+  title: "Supply chain graph",
+  intro: "{villagers} villagers, {deliveries} deliveries: the Chef, the beekeeper and the villagers that supply them. Each arrow points from supplier to receiver. Hover or click a villager to see what it takes in and sends out.",
+  legend: ["more", "organic", "metal"],
+  nodes: [  // id, name, station, category, what you stock on its shelf
+    ["chef", "Chef", "cabinet", "more", "pot \u00b7 skillet \u00b7 kelp"],
+    ["butcher", "Butcher", "smoker", "organic"],
+    ["fisherman", "Fisherman", "barrel", "organic"],
+    ["farmer", "Farmer", "composter", "organic", "gold nuggets"],
+    ["beekeeper", "Beekeeper", "beehive", "more", "glass bottles (optional)"],
+    ["toolsmith", "Toolsmith", "smithing table", "metal", "planks"],
+    ["shepherd", "Shepherd", "loom \u00b7 wool to storage", "organic"],
+  ],
+  edges: [  // from, to, what, category: the wiki's supplier and customer tables
+    ["farmer", "chef", "crops \u00b7 bread \u00b7 mushrooms \u00b7 golden carrots", "organic"],
+    ["butcher", "chef", "meat \u00b7 eggs", "organic"],
+    ["fisherman", "chef", "fish \u00b7 bowls \u00b7 water bottles", "organic"],
+    ["shepherd", "chef", "chef's hat", "organic"],
+    ["toolsmith", "chef", "bucket \u00b7 knife", "metal"],
+    ["beekeeper", "chef", "honey bottles", "more"],
+    ["chef", "beekeeper", "glass bottles \u00b7 bone meal", "more"],
+    ["farmer", "beekeeper", "bone meal", "organic"],
+    ["shepherd", "beekeeper", "beekeeper's hat", "organic"],
+    ["toolsmith", "beekeeper", "shears", "metal"],
+  ]
+};
+</script>
+<script src="supply-chain/graph.js"></script>
+</body>
+</html>

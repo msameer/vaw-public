@@ -18,3 +18,7 @@ has_children: true
 | [Beekeeper]({{ site.baseurl }}{% link more-villagers/beekeeper.md %}) | A beehive with a shelf touching it | Nothing more |
 
 More professions will follow.
+
+## Supply chain
+
+<iframe class="vaw-fit-frame" scrolling="no" src="{{ '/assets/supply-chain-graph-more.html' | relative_url }}" title="More Villagers at Work supply chain graph" style="width:100%; height:1200px; border:0; border-radius:4px;"></iframe>

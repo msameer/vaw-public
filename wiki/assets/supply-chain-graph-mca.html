@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guards supply chain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Space+Grotesk:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="supply-chain/graph.css">
+</head>
+<body>
+<!-- The MCA guards' supply chain, with the vanilla professions they deal with (wiki: MCA Reborn). -->
+<script>
+window.GRAPH = {
+  eyebrow: "MCA Reborn extension",
+  title: "Guards' supply chain",
+  intro: "{villagers} villagers, {deliveries} deliveries: the MCA guards and the villagers they deal with. Each arrow points from supplier to receiver. Hover or click a villager to see what it takes in and sends out.",
+  legend: ["gear", "organic"],
+  nodes: [  // id, name, station, category, what you stock on its shelf
+    ["armorer", "Armorer", "blast furnace", "metal", "raw ore"],
+    ["weaponsmith", "Weaponsmith", "grindstone", "metal", "planks"],
+    ["swordsman", "Swordsman", "MCA guard", "guard"],
+    ["cleric", "Cleric", "brewing stand", "craft", "nether wart \u00b7 ghast tears \u00b7 blaze powder"],
+    ["archer", "Archer", "MCA guard", "guard"],
+    ["leatherworker", "Leatherworker", "cauldron", "gear", "dye (optional)"],
+    ["fletcher", "Fletcher", "fletching table", "gear", "flint"],
+  ],
+  edges: [  // from, to, what, category: the wiki's supplier and customer tables
+    ["armorer", "swordsman", "armour \u00b7 shield", "gear"],
+    ["weaponsmith", "swordsman", "sword", "gear"],
+    ["fletcher", "archer", "bow \u00b7 arrows", "gear"],
+    ["leatherworker", "archer", "leather armour", "gear"],
+    ["swordsman", "cleric", "rotten flesh from kills", "organic"],
+    ["archer", "cleric", "rotten flesh from kills", "organic"],
+  ]
+};
+</script>
+<script src="supply-chain/graph.js"></script>
+</body>
+</html>
