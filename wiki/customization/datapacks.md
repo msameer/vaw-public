@@ -37,13 +37,15 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | Tag | What it is for | Default |
 | :---- | :---- | :---- |
 | `vaw:farmer_tools` | Tools the farmer works with, and what the toolsmith makes for it. Tilling needs a hoe. | Hoes, and knives from Farmer's Delight or any mod using `#c:tools/knife` |
-| `vaw:butcher_tools` | Tools the butcher culls with, and what the toolsmith makes for it. | Axes, and the same knives |
+| `vaw:butcher_tools` | Tools the butcher culls with, and what the toolsmith makes for it. | Axes; with Farmer's Delight, its knives instead |
 | `vaw:animal_feed` | What counts as feed on the butcher's shelf. Which species it feeds is set per animal by the `breeding` files below. | The vanilla foods of cows, sheep, goats, pigs, rabbits and chickens |
 | `vaw:compostable_surplus` | Seeds the farmer may compost into bone meal. Keep food out of it. | Wheat, beetroot, melon, pumpkin and torchflower seeds, pitcher pods |
 | `vaw:smeltable_ore` | Raw ores the armorer smelts. Each needs a blast furnace recipe. | Raw iron, raw gold, raw copper |
 | `vaw:armorer_ingots` | Ingots the armorer works straight from its shelf, without smelting. | Iron, gold and copper ingots |
 | `vaw:fuel` | Fuel for the armorer's blast furnace and the butcher's smoker. Vanilla decides how long each burns. | Coal and charcoal, bamboo, dried kelp blocks, blaze rods |
 | `vaw:crop_items` | Items a farmer picks up when they lie in its field. | Vanilla crops, their seeds and cuttings, and Farmer's Delight's when it is installed |
+| `vaw:bottles` | Bottles: one is worth a trip, so a villager never waits to carry more of them to a shelf or a Chef's kitchen. | Glass bottles, potions (water bottles among them), honey bottles, and Farmer's Delight's milk bottle |
+| `vaw_more:chef_never_converts` | With More Villagers at Work: what the Chef only puts into a meal that takes it as it is, never into another ingredient. Its cabinet still takes it for those meals. | Honey bottles, so honey never becomes sugar |
 | `vaw:villager_reserve` | What a villager keeps for itself and never deposits or delivers. The farmer and the butcher have rules of their own, and with the MCA extension MCA villagers keep only seeds. | Bread, carrots, potatoes, beetroots, wheat, and the seeds villagers plant |
 
 ### Entity types
@@ -102,6 +104,7 @@ One file per profession, listing groups of items in order. A missing mandatory g
 | `groups[].keep_last` | no | `true`, or a list of members: the last item of each stack stays on the shelf, so everyone can see what the shelf is for. |
 | `groups[].needed_with` | no | A list of items or `#tags`: the group counts only while the shelf holds one of them. The armorer's fuel is needed with raw ore, and not with ingots. |
 | `groups[].never_ordered` | no | A list of members that meet the group but that no villager or trader brings: they are yours to stock. The armorer's ingots. |
+| `groups[].always_ordered` | no | A list of members the shelf asks for whenever it holds less than their cap, even before you have stocked them once, and even in an optional group. The beekeeper's bone meal. A member can't be both this and `never_ordered`. |
 
 ```json
 {

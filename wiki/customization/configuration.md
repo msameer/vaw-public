@@ -26,8 +26,8 @@ Every option is written into the file with its default and a comment explaining 
 | `depositRange` | `48` | 8–128 | How far, in blocks, a villager walks to reach village storage. Vanilla pathfinding fails quietly on long routes, so raise it with care. |
 | `childErrandsPerDay` | `2` | 0–8 | Errands a village child runs in a day, during working hours only. `0` turns children's errands off. |
 | `waterAvoidance` | `32` | 0–64 | How dearly a working villager avoids water on its way, as a pathfinding cost per block of it. Vanilla's own is `8`, which a short cut across your fisherman's pond easily beats. It is a preference and never a wall: storage across a stream is still reached, just last. |
-| `unreachableTimeoutTicks` | `200` | 40–2400 | How long a villager keeps trying to reach a chest or shelf it cannot get to. |
-| `unreachableCooldownTicks` | `1200` | 100–24000 | How long such a chest or shelf is skipped before it is tried again. A hauling villager or an errand-running child skips it for the rest of the day instead, unless the daylight cycle is off. |
+| `unreachableTimeoutTicks` | `200` | 40–2400 | How long a villager keeps trying to reach a chest or shelf it cannot get to, or an animal that cannot come to it. |
+| `unreachableCooldownTicks` | `1200` | 100–24000 | How long such a chest, shelf or animal is skipped before it is tried again. A hauling villager or an errand-running child skips a chest or shelf for the rest of the day instead, unless the daylight cycle is off. |
 
 ### Restocking
 
@@ -71,8 +71,8 @@ It changes how much of its time a villager works, never how fast it works once i
 | `cullPauseTicks` | `40` | 0–200 | How long, in ticks, a butcher stands at its smoker with the animal before killing it. `0` kills the moment it arrives. |
 | `speciesPerAnimalWorker` | `2` | 1–8 | How many species one butcher manages. |
 | `perSpeciesFloor` | `4` | 0–64 | How many adults of each species a butcher keeps: it culls those above it once there is nothing to feed. `0` lets a butcher cull a species to extinction. |
-| `breedOnlyButchers` | `false` | true/false | Lets a butcher with feed and no culling tool breed its animals and never cull them, for a cramming farm; the toolsmith then leaves it without a tool. Off, a butcher without an axe or knife breeds nothing and shows the tool it is missing until the toolsmith makes it one. |
-| `cullingMode` | `lead_teleport` | `lead_teleport`, `lead`, `over_fence` | How a butcher gets a large animal to its smoker. `lead_teleport` walks it out through a gate that stays shut and lifts one that cannot reach the gate past it, so an animal always reaches the smoker; `lead` is the same walk without the lift, and an animal boxed into a corner by the herd is culled where it stands; `over_fence` never takes a lead at all. Small animals are carried whatever this says. |
+| `breedOnlyButchers` | `false` | true/false | Lets a butcher with feed and no culling tool breed its animals and never cull them, for a cramming farm; the toolsmith then leaves it without a tool. Off, a butcher without its culling tool breeds nothing and shows the tool it is missing until the toolsmith makes it one. |
+| `cullingMode` | `lead_teleport` | `lead_teleport`, `over_fence` | How a butcher gets a large animal to its smoker. `lead_teleport` walks it out through a gate that stays shut and lifts one that cannot reach the gate past it, so an animal always reaches the smoker; `over_fence` never takes a lead at all. Small animals are carried whatever this says. `lead`, the walk without the lift, is gone: a config that says `lead` works as `lead_teleport`. |
 | `censusRescanSeconds` | `5` | 1–300 | How often an animal worker recounts the animals it manages. |
 
 ### Fishing
@@ -112,6 +112,14 @@ Only with the Villagers after Work jar installed. It is written and read as the 
 | `bedtimeBreeding` | `true` | true/false | Villagers have children only at night, two well-fed villagers in beds side by side. Off, villagers breed as they do without the mod, and under MCA Reborn as MCA has them. **Turn it off to keep a villager breeder working.** |
 | `bedtimeBreedingChance` | `0.2` | 0.0–1.0 | The chance each night that such a pair has a child. |
 
+## More Villagers at Work: `config/vaw-more.json5`
+
+Only with the More Villagers at Work jar installed. It is written and read as the core's file is.
+
+| Option | Default | Range | What it does |
+| :---- | :---- | :---- | :---- |
+| `chefMilkingRange` | `48` | 1–64 | How far from its cabinet, in blocks, the [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) looks for a cow, goat or mooshroom to milk: a box this far each way, above and below as well as around, like a butcher's around its smoker. Vanilla pathfinding fails quietly on long routes, so raise it past 48 with care. |
+
 ## MCA extension: `config/villagers-at-work-mca.json`
 
 Plain JSON. An option missing from the file keeps its default, and a file that cannot be read leaves every option at its default.
@@ -132,7 +140,7 @@ Plain JSON. An option missing from the file keeps its default, and a file that c
 
 ## On a player's game: `config/villagers-at-work-client.json`
 
-Only for the mod's client part, which a player's own game loads and a server never does. It draws the tool a villager works with in its hand. The villager uncrosses its arms to hold it, as a player holds an item, and swings it as it works. It works with model packs too: under a pack that gives villagers arms of their own, such as Human Era, with or without its Fresh Animations add-on, the tool goes in the hand the pack drew; under one that keeps the crossed arms, such as Fresh Animations, the villager's arms uncross and follow the pack's animation. Change these values only if a pack's villagers still hold the tool out of place.
+Only for the mod's client part, which a player's own game loads and a server never does. It draws the tool a villager works with in its hand. The villager uncrosses its arms to hold it, as a player holds an item, and swings it as it works. A fisherman's line runs from its rod to a bobber floating on the water, which a fish pulls under just before the catch. It works with model packs too: under a pack that gives villagers arms of their own, such as Human Era, with or without its Fresh Animations add-on, the tool goes in the hand the pack drew; under one that keeps the crossed arms, such as Fresh Animations, the villager's arms uncross and follow the pack's animation. Change these values only if a pack's villagers still hold the tool out of place.
 
 Under Human Era the arms belong to the pack, which animates them itself, so the villager holds its tool but never swings it, and the item it shows you while trading floats in front of its chest, where vanilla draws it from the crossed arms the pack removed. Both are fixed by the Human Era compatibility packs, `vaw-human-era.zip` and, if you use Human Era's Fresh Animations add-on, `vaw-human-era-fa.zip`. They have their own project, [Villagers at Work - Human Era Villagers Compat](https://www.curseforge.com/minecraft/texture-packs/vaw-hevi-compat), since a Human Era release means a new pack rather than a new mod release, and they go **above** Human Era in your resource pack list. Their [source is here](https://github.com/msameer/villagers-at-work-human-era). If you set `custom` values in an earlier version, when the tool stood in the villager's crossed arms, the untouched defaults are ignored and the tool simply sits in the hand.
 

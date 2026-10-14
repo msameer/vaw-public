@@ -16,7 +16,7 @@ A cleric that brews leaves the potions **in the stand**, and a stand holds three
 
 A villager that drops to **half health or below** walks to the nearest brewing stand holding a potion that would heal it, drinks one on the spot, and goes back to what it was doing. If it is still under half health and a potion is still standing there, it drinks that one too.
 
-The empty bottle goes to permanent storage on the villager's next deposit run.
+**The empty bottle goes back to the fisherman** straight after the drink: the villager takes it to the nearest fisherman's shelf with room for it, one bottle by itself, and you don't need to stock the shelf. The fisherman fills the bottles there with water for the clerics, so the potions go round. With no fisherman's shelf with room, the bottle goes to permanent storage on the villager's next deposit run.
 
 ## Whose stands, and which potions
 

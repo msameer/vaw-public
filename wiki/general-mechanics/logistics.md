@@ -17,7 +17,8 @@ Harvesting and fishing are ongoing activities. Crafting and smelting are on dema
 | :---- | :---- | :---- |
 | Butcher | Feed | 16, on top of the one kept to say which feed |
 | Cartographer | Sugar cane | 18 |
-| Toolsmith, weaponsmith, fisherman, fletcher | Sticks | 64 |
+| Toolsmith, weaponsmith, fletcher | Sticks | 64 |
+| Fisherman | Sticks | 8, enough for two rods and more |
 | Leatherworker, librarian | Leather | 64 |
 | Fisherman, fletcher | String | 64 |
 | Fletcher | Feathers | 64 |
@@ -28,6 +29,8 @@ Harvesting and fishing are ongoing activities. Crafting and smelting are on dema
 | Everyone else | Everything else | One job's worth |
 
 **A trip is worth it from the min order up.** A villager walks over only with at least that many: half the cap when the cap is 16 or more, and the whole cap below that. It holds on to a smaller amount until it has more, and never puts it in storage meanwhile. **When its inventory is full or its working day ends, it delivers whatever it has**, so a shelf that ran out is restocked by the end of the day at the latest.
+
+**A bottle goes by itself.** Bottles are rare, so a villager takes even one glass bottle, water bottle, potion or honey bottle where it is going straight away, to a shelf or to a Chef's kitchen.
 
 **Fuel goes in a real load during the day.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing. **When the working day ends, whatever there is goes, fuel included**: a farmer with 20 bamboo gives them to the armorer waiting for fuel rather than putting them away.
 
@@ -93,4 +96,8 @@ Break a villager’s workstation, place another, and it takes the new job still 
 
 The villager puts that tool down. It leaves with everything else it no longer needs: into the workstation inventory or a buffer chest if there is one, otherwise to permanent storage on its next deposit run. The tool is yours and is never destroyed, so a villager with a full inventory keeps holding it until it has somewhere to put it. With its hands free, it takes or makes the tool its new job needs.
 
-Between the two jobs — the old workstation broken and the new one not placed yet — the villager has no job and nowhere to deposit anything, so it puts the tool away rather than stand around wielding it. You will not see it holding anything. Nothing is lost: it still has the tool, it drops it if it dies, and it brings it back out as soon as it takes a job again. If that new job uses the tool it keeps it, and if it does not, the tool is put down as above. 
+Between the two jobs — the old workstation broken and the new one not placed yet — the villager has no job and no workstation to drop anything off at, so it puts the tool away rather than stand around wielding it. You will not see it holding anything. If it takes a job again within a minute or so, it brings the tool back out: if that new job uses the tool it keeps it, and if it does not, the tool is put down as above.
+
+**A villager that stays without a job takes its tools to permanent storage.** About a minute after it lost its job, during working hours, it carries every tool it still has — the one it put away, and any in its pockets, such as a farmer's knife — to the nearest village storage chest with room. **Everything else it carries goes with them**, such as a bamboo farmer's bamboo, sugar cane or seeds, even with no tool to take. It keeps only the food villagers breed with: bread, carrots, potatoes and beetroot. A villager that has traded keeps its profession when it loses its workstation, and does the same. With no storage chest within reach, or none with room, it keeps them and tries again later. Nothing is ever lost: until it gets them into a chest it still has them, and it drops them if it dies. A villager whose shelf you only took away still has its workstation and keeps its tool for when the shelf is back.
+
+With MCA Reborn, an MCA villager without a job takes only the tool it worked with to storage; its own inventory, where MCA villagers keep the tools they use for their chores, is left alone.
