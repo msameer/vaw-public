@@ -1,7 +1,9 @@
 name: wiki
 
 # Builds wiki/ and publishes it at https://msameer.github.io/vaw-public/. The mod's release copies
-# its wiki here, so this site always describes the version players can download.
+# its wiki here, so this site always describes the version players can download. The wiki is a
+# Starlight site from the mod's 1.1.7 on; one copied from an earlier release is Jekyll's, and is
+# built as such.
 on:
   push:
     branches: [main]
@@ -20,7 +22,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/jekyll-build-pages@v1.0.13
+      - id: kind
+        run: |
+          if [ -f wiki/astro.config.mjs ]; then echo "starlight=true" >> "$GITHUB_OUTPUT"; else echo "starlight=false" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.kind.outputs.starlight == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: wiki/package-lock.json
+      - if: steps.kind.outputs.starlight == 'true'
+        working-directory: wiki
+        env:
+          WIKI_BASE: /vaw-public
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          mv dist ../_site
+      - if: steps.kind.outputs.starlight != 'true'
+        uses: actions/jekyll-build-pages@v1.0.13
         with:
           source: ./wiki
           destination: ./_site
