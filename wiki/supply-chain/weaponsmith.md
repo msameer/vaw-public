@@ -1,10 +1,8 @@
 ---
 title: Weaponsmith
-parent: Supply Chain
-nav_order: 12
+sidebar:
+  order: 12
 ---
-
-# Weaponsmith
 
 Makes swords for MCA swordsman guards, one at a time, placing into its armory until a guard’s weapon breaks and takes one
 
@@ -24,6 +22,7 @@ Its armory can be an **armor stand** instead of a chest, and one stand between t
 
 | Player | Planks |
 | :---- | :---- |
+| [Lumberjack](/more-villagers/lumberjack/) | Planks, sticks |
 | Armorer | Ingots |
 | Fisherman | Sticks |
 

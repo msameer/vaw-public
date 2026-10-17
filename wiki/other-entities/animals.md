@@ -1,16 +1,14 @@
 ---
 title: Animals
-parent: Other entities
-nav_order: 2
+sidebar:
+  order: 2
 ---
-
-# Animals
 
 Animals are claimed by individual workstations rather than by area, so two butchers never manage the same cow and never both cull it.
 
 Each animal worker handles **two species of animals**. Culling never takes a species below four, so a herd can never be wiped out.
 
-**Animal workers never go into a pen.** A butcher or a shepherd works an animal over the fence, from up to three blocks away, and so does a [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) milking one. When the one it picked is further in than that, that animal alone walks over to the fence to meet it, and goes back to wandering once it is done. It ignores your food while it does, and nothing is held out to draw the rest of the herd, so they do not crowd the fence. An animal on a lead, named or tamed is never walked over.
+**Animal workers never go into a pen.** A butcher or a shepherd works an animal over the fence, from up to three blocks away, and so does a [Chef](/more-villagers/chef/) milking one. When the one it picked is further in than that, that animal alone walks over to the fence to meet it, and goes back to wandering once it is done. It ignores your food while it does, and nothing is held out to draw the rest of the herd, so they do not crowd the fence. An animal on a lead, named or tamed is never walked over.
 
 **To absolutely protect an animal, give it a name tag.** Named animals are never touched by anything in this mod, ever. Moving an animal outside the workstation's range works too, but name tags survive wandering.
 

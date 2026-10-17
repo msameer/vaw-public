@@ -1,10 +1,8 @@
 ---
 title: Productivity
-parent: General Mechanics
-nav_order: 3
+sidebar:
+  order: 3
 ---
-
-# Productivity
 
 Villagers work at a human pace rather than a machine's.
 
@@ -28,7 +26,7 @@ The length of a break is `breakTicks` (100, 5 seconds).
 
 ## Mood
 
-Without MCA Reborn every villager of a profession works at the same productivity. **With the MCA extension, mood counts**: the productivity you set is what a villager in a middling mood works at, a happy villager works harder and an unhappy one less. An overjoyed villager works at your value plus `moodProductivity` (`0.2` by default), a miserable one at your value minus it, and never above `1` or below `0`. So a village you keep happy gets more done, and one you neglect gets less. Set `moodProductivity` to `0` in the extension's config to leave mood out of it — see [MCA Reborn]({{ site.baseurl }}{% link integrations/mca-reborn.md %}).
+Without MCA Reborn every villager of a profession works at the same productivity. **With the MCA extension, mood counts**: the productivity you set is what a villager in a middling mood works at, a happy villager works harder and an unhappy one less. An overjoyed villager works at your value plus `moodProductivity` (`0.2` by default), a miserable one at your value minus it, and never above `1` or below `0`. So a village you keep happy gets more done, and one you neglect gets less. Set `moodProductivity` to `0` in the extension's config to leave mood out of it — see [MCA Reborn](/integrations/mca-reborn/).
 
 ## What it does not touch
 

@@ -1,15 +1,13 @@
 ---
 title: Cleric
-parent: Supply Chain
-nav_order: 4
+sidebar:
+  order: 4
 ---
 
-# Cleric
-
-The village's doctor, and its enchanting supplier. The cleric has two kinds of work, and **a station does one of them** — which one is decided entirely by what you put on its shelf.
+The village's doctor, and its enchanting supplier. **Every cleric does both kinds of work.**
 
 - **The exchange** — rotten flesh into lapis lazuli, for the librarian.  
-- **Brewing** — a brewing stand really brews, so a cleric with the right ingredients brews potions and leaves them in the stand for hurt villagers. See [Healing]({{ site.baseurl }}{% link general-mechanics/healing.md %}).
+- **Brewing** — a brewing stand really brews, so a cleric with the right ingredients brews potions and leaves them in the stand for hurt villagers. See [Healing](/general-mechanics/healing/).
 
 ## Rotten flesh into lapis
 
@@ -19,47 +17,50 @@ It only works on demand, and **lapis never goes to storage** — rotten flesh is
 
 ## Brewing
 
-A brewing stand holds three bottles and takes one ingredient at a time, exactly as it does for you — **blaze powder included**, because it is the fuel. That takes a shelf slot, so each brewing station does one step of the chain:
+A brewing stand really brews, exactly as it does for you.
 
-| Shelf | Brews |
-| :---- | :---- |
-| Water bottle, nether wart, blaze powder | Awkward potion |
-| Awkward potion, glistering melon slice, blaze powder | Potion of healing |
-| Awkward potion, ghast tear, blaze powder | Potion of regeneration |
+- **Its shelf** holds rotten flesh, nether wart, and a glistering melon slice or a ghast tear.
+- **Its stand** holds the bottles and the fuel. The fisherman puts water bottles in it, and you put blaze powder in its fuel slot.
+- **Blaze powder on its shelf** goes into the stand. What doesn't fit goes to storage.
 
-So an automated supply of healing potions needs **two clerics**: one making awkward potions, one finishing them. Regeneration needs a third, and the lapis exchange a fourth. As everywhere else in the mod, the answer to wanting more is another workstation.
+**The stand says what comes next:**
 
-**The awkward cleric supplies the finishing cleric**, exactly as any other supplier restocks a customer's shelf.
+| The stand holds | The cleric adds | Makes |
+| :---- | :---- | :---- |
+| 3 water bottles | Nether wart | 3 awkward potions |
+| 3 awkward potions | Glistering melon slice | 3 potions of healing |
+| 3 awkward potions | Ghast tear | 3 potions of regeneration |
 
-**It brews in threes, as you would.** A cleric fills the stand's three bottles first and only then adds the ingredient, so one nether wart or one glistering melon slice makes three potions rather than one. It will not start a fresh batch while potions are still standing in the stand, so a stand drains to empty before it refills.
+- **It brews in threes.** It waits for the third water bottle, so one nether wart makes three potions. Fewer than three awkward potions, left in a stand from an older version, are finished as they are.
+- **With awkward potions in its stand**, it waits for a melon slice or a ghast tear. The farmer brings melon slices; a ghast tear is yours to bring, and it goes first.
+- **The bottles go round.** Villagers drink the potions and take the empty bottles to the fisherman, who fills them and brings them back. A stand gets new water bottles while it is empty or holds water bottles or healing or regeneration potions, never while it holds awkward potions.
+- **Its icon** shows what the batch in its stand is waiting for: nether wart, a melon slice, or blaze powder.
+- **Potions do not stack in vanilla**, so each water bottle is a trip of its own. With water bottles as scarce as they are, a batch is the work of days rather than hours.
 
-**Potions do not stack in vanilla**, so a shelf slot holds one water bottle or one awkward potion, and filling a stand takes three separate deliveries. With water bottles as scarce as they are, a batch is the work of days rather than hours. If a pack you play with lets potions stack, deliveries follow suit and arrive together.
+**What comes from where.** Water bottles come from the fisherman and glistering melon slices from the farmer, given gold nuggets. Nether wart, ghast tears, blaze powder and the gold are yours to supply — they are nether goods and village gold, and nothing in a village makes them.
 
-**You say what a station is, and the shelf remembers.** A cleric with an empty shelf does the exchange, and the fisherman brings it rotten flesh as it always has. Put nether wart on a clear shelf instead and it is an awkward station; put glistering melon slices on one and it finishes awkward potions into healing ones. The last wart and the last melon slice are never brewed with, so the shelf goes on saying what it is for and its suppliers go on coming. No other villager decides for it.
+**Clerics from older versions** move the bottles on their shelves:
 
-**A ghast tear is spent like anything else.** It is far too rare to leave sitting on a shelf as a label, so a regeneration station makes one batch of three and then waits for you to say what it should do next: another tear, or melon slices to go back to healing.
-
-**What comes from where.** Water bottles are the fisherman's junk catch and glistering melon slices come from the farmer, given gold nuggets. Nether wart, ghast tears, blaze powder and the gold are yours to supply — they are nether goods and village gold, and nothing in a village makes them.
+- Water bottles go into the stand if it is empty or holds water bottles or healing or regeneration potions. Otherwise they go to another cleric's stand that has room, or to storage.
+- Awkward potions go into the stand if it is empty or holds awkward potions. Otherwise they go to storage.
+- The freed slots then take rotten flesh, so every cleric does the exchange too.
 
 **Tools:** None
 
 **Consumables:**
 
-| Rotten flesh | Mandatory for the exchange |
+| Rotten flesh | Optional: for the exchange |
 | :---- | :---- |
-| Water bottle | Mandatory for Awkward potion maker |
-| Nether wart | Mandatory for Awkward potion maker |
-| Awkward potion | Mandatory for Healing and Regeneration makers |
-| Glistering melon slice | Mandatory for Healing potion maker |
-| Ghast tear | Mandatory for Regeneration potion maker |
-| Blaze powder | Mandatory for brewing |
+| Nether wart | Optional: for awkward potions |
+| Glistering melon slice or ghast tear | Optional: for healing or regeneration potions |
+| Water bottles | In its brewing stand |
+| Blaze powder | In its brewing stand |
 
 **Suppliers:**
 
-| Fisherman | Rotten flesh and water bottles from junk catch |
+| Fisherman | Rotten flesh, and water bottles into its brewing stand |
 | :---- | :---- |
 | Farmer | Glistering melon slices |
-| Cleric | Awkward potions |
 | MCA Guards | Rotten flesh from looting kills |
 | You | Nether wart, ghast tears, blaze powder |
 
@@ -67,6 +68,5 @@ So an automated supply of healing potions needs **two clerics**: one making awkw
 
 | Librarian | Lapis Lazoli |
 | :---- | :---- |
-| Cleric | Awkward potions |
 
 Potions are not delivered anywhere. They stay in the stand, and hurt villagers come to them.

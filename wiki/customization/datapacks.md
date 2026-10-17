@@ -1,10 +1,8 @@
 ---
 title: Datapacks
-parent: Customization
-nav_order: 2
+sidebar:
+  order: 2
 ---
-
-# Datapacks
 
 Most of Villagers at Work is data rather than code, so a datapack can tune it, or teach it about another mod, without touching a jar. There are two kinds of files: **tags**, and **data files** in the mod's own formats. Both are re-read by `/reload`.
 
@@ -29,7 +27,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:storage_targets` | Village storage when standing alone, and a terminal when touching a workstation. The block must hold items. | `#minecraft:copper_chests` |
 | `vaw:workstation_containers` | Workstations with an inventory of their own: villagers deposit into it, haulers empty it. | Barrel |
 | `vaw:leash_phaseable` | Blocks a leashed animal passes through while it stays shut, such as another mod's gates. | `#minecraft:fence_gates` |
-| `vaw_after_work:seat_blocks` | With Villagers after Work: blocks a villager sits on to rest after work, and lies across two of side by side, such as another mod's chairs. A villager leans back only on a wool carpet; on any other block here it sits upright. | Carpets |
+| `vaw:seat_blocks` | Blocks a villager sits on, such as another mod's chairs: at a table or a campfire with Villagers after Work, and at a school. After work it also lies across two side by side, and leans back only on a wool carpet; on any other block here it sits upright. `vaw_after_work:seat_blocks` still works and is included. | Carpets |
 | `vaw:keep_clear_around` | Blocks a farmer plants nothing around, on their sides or their corners, so it can walk its field without touching them, or so a stem has room for its fruit. | Cactus, melon and pumpkin stems |
 
 ### Items
@@ -42,9 +40,11 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:compostable_surplus` | Seeds the farmer may compost into bone meal. Keep food out of it. | Wheat, beetroot, melon, pumpkin and torchflower seeds, pitcher pods |
 | `vaw:smeltable_ore` | Raw ores the armorer smelts. Each needs a blast furnace recipe. | Raw iron, raw gold, raw copper |
 | `vaw:armorer_ingots` | Ingots the armorer works straight from its shelf, without smelting. | Iron, gold and copper ingots |
-| `vaw:fuel` | Fuel for the armorer's blast furnace and the butcher's smoker. Vanilla decides how long each burns. | Coal and charcoal, bamboo, dried kelp blocks, blaze rods |
+| `vaw:fuel` | Fuel a worker moves off its shelf into its workstation, such as a blast furnace or a smoker. Vanilla decides how long each burns. | Coal and charcoal, bamboo, dried kelp blocks, blaze rods |
+| `vaw:station_fuel` | Fuel the farmer puts straight into workstations' fuel slots. | Bamboo |
 | `vaw:crop_items` | Items a farmer picks up when they lie in its field. | Vanilla crops, their seeds and cuttings, and Farmer's Delight's when it is installed |
 | `vaw:bottles` | Bottles: one is worth a trip, so a villager never waits to carry more of them to a shelf or a Chef's kitchen. | Glass bottles, potions (water bottles among them), honey bottles, and Farmer's Delight's milk bottle |
+| `vaw_more:two_by_two_saplings` | With More Villagers at Work: saplings the lumberjack plants only four together, on a 2×2 square, since one alone never grows. | Dark oak and pale oak saplings |
 | `vaw_more:chef_never_converts` | With More Villagers at Work: what the Chef only puts into a meal that takes it as it is, never into another ingredient. Its cabinet still takes it for those meals. | Honey bottles, so honey never becomes sugar |
 | `vaw:villager_reserve` | What a villager keeps for itself and never deposits or delivers. The farmer and the butcher have rules of their own, and with the MCA extension MCA villagers keep only seeds. | Bread, carrots, potatoes, beetroots, wheat, and the seeds villagers plant |
 
@@ -54,7 +54,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | :---- | :---- | :---- |
 | `vaw:farm_animals` | Animals butchers breed and cull, and shepherds shear. | Cow, pig, sheep, goat, rabbit, chicken |
 | `vaw:shearable_override` | Other animals a shepherd may shear. They must work with vanilla shears. | Empty |
-| `vaw_after_work:seats` | With Villagers after Work: things a villager sits on to rest after work, as a player sits on a cushion. | Cushions |
+| `vaw:seats` | Things a villager rides to sit, as a player sits on a cushion: at a table or a campfire with Villagers after Work, and at a school. `vaw_after_work:seats` still works and is included. | Cushions |
 | `vaw:carryable` | Animals the butcher carries to the smoker rather than leading them. | Chicken, rabbit |
 
 > **Be careful:** many modded creatures fight back. Adding one to `vaw:farm_animals` can get your butcher killed.
@@ -102,7 +102,7 @@ One file per profession, listing groups of items in order. A missing mandatory g
 | `groups[].per_use` | no | How many of a member one piece of work uses, such as `{"minecraft:stick": 2}`. Default 1. |
 | `groups[].max` | no | The member's cap: how deep the slot is stocked, such as `{"minecraft:iron_ingot": 16}`. The shelf asks for more whenever it holds less. Default: the member's `per_use`, and it may never be below it. `restockCaps` in the config overrides it per item. |
 | `groups[].keep_last` | no | `true`, or a list of members: the last item of each stack stays on the shelf, so everyone can see what the shelf is for. |
-| `groups[].needed_with` | no | A list of items or `#tags`: the group counts only while the shelf holds one of them. The armorer's fuel is needed with raw ore, and not with ingots. |
+| `groups[].needed_with` | no | A list of items or `#tags`: the group counts only while the shelf holds one of them. For example, a group needed with `#vaw:smeltable_ore` counts only while raw ore is on the shelf. |
 | `groups[].never_ordered` | no | A list of members that meet the group but that no villager or trader brings: they are yours to stock. The armorer's ingots. |
 | `groups[].always_ordered` | no | A list of members the shelf asks for whenever it holds less than their cap, even before you have stocked them once, and even in an optional group. The beekeeper's bone meal. A member can't be both this and `never_ordered`. |
 
@@ -144,7 +144,7 @@ One file per plant block.
 }
 ```
 
-To stop the farmer harvesting a plant, you do not need a datapack: list it in the `doNotHarvest` [configuration]({{ site.baseurl }}{% link customization/configuration.md %}) option.
+To stop the farmer harvesting a plant, you do not need a datapack: list it in the `doNotHarvest` [configuration](/customization/configuration/) option.
 
 ### `tillable`: ground the farmer may till
 
@@ -255,11 +255,11 @@ Only raw materials: tools, weapons, armour and enchanted books are never offered
 | `input` | yes | What it takes from its shelf. |
 | `output` | yes | What it makes. |
 
-The rate is set in the [configuration]({{ site.baseurl }}{% link customization/configuration.md %}), with `clericLapisPerStack` or `clericUseVanillaRates`.
+The rate is set in the [configuration](/customization/configuration/), with `clericLapisPerStack` or `clericUseVanillaRates`.
 
 ### `guard_supplier`: which makers equip which guards
 
-For a guard mod (see [Extension API]({{ site.baseurl }}{% link customization/extension-api.md %})). Used only while a guard mod is installed.
+For a guard mod (see [Extension API](/customization/extension-api/)). Used only while a guard mod is installed.
 
 | Field | Required | What it does |
 | :---- | :---- | :---- |

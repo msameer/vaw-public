@@ -1,11 +1,8 @@
 ---
 title: Villagers after Work
-nav_order: 10
 ---
 
-# Villagers after Work
-
-- **A separate mod that needs Villagers at Work.** Install its jar beside the mod (see [Installation]({{ site.baseurl }}{% link installation.md %})).
+- **A separate mod that needs Villagers at Work.** Install its jar beside the mod (see [Installation](/installation/)).
 - **When work ends, villagers gather**: cooks grill dinner on campfires, the others eat, rest and gather, and well-fed couples may have a child that night.
 
 ## Setting it up
@@ -15,11 +12,11 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 | Place | What it is for |
 | :---- | :---- |
 | Bell | Villagers gather around it. |
-| Campfire | Dinner, and villagers gather around it. It must stand under open sky, with a carpet or cushion two blocks out on at least one side. |
+| Campfire | Dinner, and villagers gather around it, indoors or out. It needs a carpet or cushion two blocks out on at least one side. A campfire under a beehive is left alone, for the bees. |
 | Jukebox | Villagers gather around it while it plays. With music discs on a shelf beside it, they play them in the evening and put them back at bedtime. |
 | Cushion, carpet | A seat, but only at a table or around a campfire: any other is decoration. Two side by side around a campfire are for lying back. Cushions need 26.3. |
 
-- **Seats from furniture mods** can be added with the `vaw_after_work:seats` and `vaw_after_work:seat_blocks` tags (see [Datapacks]({{ site.baseurl }}{% link customization/datapacks.md %})).
+- **Seats from furniture mods** can be added with the `vaw:seats` and `vaw:seat_blocks` tags (see [Datapacks](/customization/datapacks/)).
 
 ## Dinner
 
@@ -28,7 +25,8 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 - **The butcher, the fisherman and the farmer cook**, spreading their food over the campfires. Each diner eats the piece on its side when it is done.
 - **Each diner gets food it eats**: with MCA Reborn, a vegetarian gets no meat or fish.
 - **Each cook keeps 8 food for dinner** (`dinnerFoodKept`), from what would have gone to storage, so orders come first. A farmer short of 8 bakes bread from its wheat.
-- **With a [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}), the butcher and the fisherman give it half their dinner** as the evening begins.
+- **With a Chef's kitchen taking bread, all the farmer's bread goes to the Chef**: it keeps none for dinner and bakes none for it.
+- **With a [Chef](/more-villagers/chef/), the butcher and the fisherman give it half their dinner** as the evening begins.
 - **When work ends, workers store the food they carry**, except a cook's dinner.
 - **Leftovers a villager carries go to storage before bed**, like any food it carries.
 
@@ -40,7 +38,7 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 
 ## Dinner tables
 
-- **With [More Villagers at Work]({{ site.baseurl }}{% link more-villagers.md %})'s Chef, villagers also dine at tables.**
+- **With [More Villagers at Work](/more-villagers/)'s Chef, villagers also dine at tables.**
 - **A table is a row of blocks with seats two blocks out**, a block of room between:
   - **A low table**: bottom slabs, with carpets or cushions around it.
   - **A high table**: full blocks, with chairs around it. A cushion on a stair is a chair.
@@ -97,5 +95,5 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 - **Villagers have children at night, in bed.** Two well-fed villagers in beds side by side have a 20% chance a night (`bedtimeBreedingChance`), if there is a free bed for the child within 48 blocks.
 - **All three beds must be under a roof**: anything solid above, glass included.
 - **A child costs both parents their meal**, so they must be well fed again before the next.
-- **It is the only way villagers breed** while `bedtimeBreeding` is on, as it is by default. Turn it off to have villagers breed as in vanilla (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})).
+- **It is the only way villagers breed** while `bedtimeBreeding` is on, as it is by default. Turn it off to have villagers breed as in vanilla (see [Configuration](/customization/configuration/)).
 - **Under MCA Reborn**, the two must be married, and the child comes after MCA's pregnancy.

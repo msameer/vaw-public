@@ -15,7 +15,6 @@
 window.GRAPH = {
   eyebrow: "More Villagers at Work",
   title: "Supply chain graph",
-  intro: "{villagers} villagers, {deliveries} deliveries: the Chef, the beekeeper and the villagers that supply them. Each arrow points from supplier to receiver. Hover or click a villager to see what it takes in and sends out.",
   legend: ["more", "organic", "metal"],
   nodes: [  // id, name, station, category, what you stock on its shelf
     ["chef", "Chef", "cabinet", "more", "pot \u00b7 skillet \u00b7 kelp"],
@@ -25,6 +24,10 @@ window.GRAPH = {
     ["beekeeper", "Beekeeper", "beehive", "more", "glass bottles (optional)"],
     ["toolsmith", "Toolsmith", "smithing table", "metal", "planks"],
     ["shepherd", "Shepherd", "loom \u00b7 wool to storage", "organic"],
+    ["lumberjack", "Lumberjack", "chopping block \u00b7 composter (optional)", "more"],
+    ["armorer", "Armorer", "blast furnace", "metal", "raw ore"],
+    ["weaponsmith", "Weaponsmith", "grindstone", "metal"],
+    ["fletcher", "Fletcher", "fletching table", "organic", "flint"],
   ],
   edges: [  // from, to, what, category: the wiki's supplier and customer tables
     ["farmer", "chef", "crops \u00b7 bread \u00b7 mushrooms \u00b7 golden carrots", "organic"],
@@ -37,6 +40,14 @@ window.GRAPH = {
     ["farmer", "beekeeper", "bone meal", "organic"],
     ["shepherd", "beekeeper", "beekeeper's hat", "organic"],
     ["toolsmith", "beekeeper", "shears", "metal"],
+    ["toolsmith", "lumberjack", "axe", "metal"],
+    ["lumberjack", "toolsmith", "planks \u00b7 sticks", "more"],
+    ["lumberjack", "weaponsmith", "planks \u00b7 sticks", "more"],
+    ["lumberjack", "armorer", "planks", "more"],
+    ["lumberjack", "fletcher", "sticks", "more"],
+    ["lumberjack", "fisherman", "sticks", "more"],
+    ["lumberjack", "chef", "apples", "more"],
+    ["lumberjack", "beekeeper", "bone meal", "more"],
   ]
 };
 </script>

@@ -1,10 +1,8 @@
 ---
 title: Extension API
-parent: Customization
-nav_order: 3
+sidebar:
+  order: 3
 ---
-
-# Extension API
 
 For mod developers. Villagers at Work publishes a small API so another mod can work with the village: bring its own guards to the armories, speak for its villagers when they are blocked, decide what they keep for themselves, and say whose errands its children run. The MCA Reborn extension is built entirely on it, and its source ships beside its jar on [its CurseForge project](https://www.curseforge.com/minecraft/mc-mods/villagers-at-work-mca-reborn-extension), as its GPLv3 licence requires.
 
@@ -73,7 +71,7 @@ These are registered by Villagers at Work itself; read them, do not register the
 
 | Property | What it gives you |
 | :---- | :---- |
-| `VawApi.armoryAccess` | The armories near a point that supply a guard type, nearest first, as `ArmoryView`s: where each is, what it holds, and `takeOne` to take one item from it. The guard type is the id a `guard_supplier` file names (see [Datapacks]({{ site.baseurl }}{% link customization/datapacks.md %})). Empty until a guard provider is registered. |
+| `VawApi.armoryAccess` | The armories near a point that supply a guard type, nearest first, as `ArmoryView`s: where each is, what it holds, and `takeOne` to take one item from it. The guard type is the id a `guard_supplier` file names (see [Datapacks](/customization/datapacks/)). Empty until a guard provider is registered. |
 | `VawApi.delivery` | The shelves near a point with an outstanding order for an item, in the order the village's own producers serve them. `ShelfOrder.deliver` reads the shelf again before it moves anything, so an order another villager filled meanwhile is never overfilled. |
 | `VawAttachments.WORKING_TOOL` | The tool a villager is working with, as a Fabric data attachment. It is synced to clients that have the mod, which is how a client draws it in the villager's hands; vanilla clients never receive it. |
 
@@ -82,6 +80,6 @@ These are registered by Villagers at Work itself; read them, do not register the
 A guard mod needs two things:
 
 1. A **guard provider** registered with `registerGuardProvider`.
-2. A **`guard_supplier`** data file for each kind of guard, naming the makers whose armories supply it (see [Datapacks]({{ site.baseurl }}{% link customization/datapacks.md %})).
+2. A **`guard_supplier`** data file for each kind of guard, naming the makers whose armories supply it (see [Datapacks](/customization/datapacks/)).
 
 Then your guards take their gear from the armories through `VawApi.armoryAccess`, and bring loot to shelves that ordered it through `VawApi.delivery`. The MCA extension shows the whole pattern.

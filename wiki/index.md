@@ -1,11 +1,17 @@
 ---
-title: Home
-nav_order: 1
+title: Villagers at Work
+description: Bring life to villager professions through automation.
+template: splash
+hero:
+  tagline: Bring life to villager professions through automation.
+  actions:
+    - text: How it works
+      link: general-mechanics/
+      icon: right-arrow
+    - text: Supply chain
+      link: supply-chain/
+      variant: minimal
 ---
-
-# Villagers at Work
-
-## Bring life to villager professions through automation
 
 Vanilla villagers with professions trade but barely do any work. This mod gives **twelve of the thirteen vanilla professions** real jobs (three of them, the weaponsmith, fletcher and leatherworker, arm your guards when a guard mod such as MCA Reborn is installed) — and, more importantly, establishes supplier-customer relationships among them.
 

@@ -1,10 +1,8 @@
 ---
 title: Leatherworker
-parent: Supply Chain
-nav_order: 8
+sidebar:
+  order: 8
 ---
-
-# Leatherworker
 
 Makes leather armour at its cauldron, which is the archer's tier of gear. It makes one of each armor piece and puts them into their armory until a guard breaks their armor and needs replacement.
 

@@ -1,12 +1,10 @@
 ---
 title: Farmer
-parent: Supply Chain
-nav_order: 5
+sidebar:
+  order: 5
 ---
 
-# Farmer
-
-The busiest profession in the mod. Within a **9×9 area centred on its composter**, its [service area]({{ site.baseurl }}{% link general-mechanics/service-area.md %}), it will:
+The busiest profession in the mod. Within a **9×9 area centred on its composter**, its [service area](/general-mechanics/service-area/), it will:
 
 - Harvest and immediately replant crops  
 - **Till** new ground to expand its own field, if it has a hoe  
@@ -23,7 +21,7 @@ The busiest profession in the mod. Within a **9×9 area centred on its composter
 >   
 > **A cactus never hurts a farmer at work.** Even with a lane between them, a villager turning a corner brushes the cactus beside it, so while it works a farmer takes nothing from a cactus or a berry bush — and neither does any other villager at work. After work a cactus hurts as it always has, but **no villager panics at one**: in vanilla the first brush sent a villager running about among the cacti until they killed it, and now it takes the one hit and walks on. A zombie still sends it running.  
 >   
-> **The working farmer will not drop food for other villagers.** After work it shares food only with villagers who are short of it, never with another farmer, and it picks nothing up off the ground until work starts again, so it never sows another farmer's crops in its field. With Villagers after Work installed, after work it shares the food it kept back for the evening, and cooks potatoes at the village campfires (see [Villagers after Work]({{ site.baseurl }}{% link after-work.md %})).
+> **The working farmer will not drop food for other villagers.** After work it shares food only with villagers who are short of it, never with another farmer, and it picks nothing up off the ground until work starts again, so it never sows another farmer's crops in its field. With Villagers after Work installed, after work it shares the food it kept back for the evening, and cooks potatoes at the village campfires (see [Villagers after Work](/after-work/)).
 
 **Tools:**
 
@@ -33,7 +31,7 @@ The busiest profession in the mod. Within a **9×9 area centred on its composter
 
 **The hoe is what grows the field.** A farmer with a hoe tills new ground and plants cuttings on open ground, as above. A farmer without one keeps the field it has and never makes it bigger: it harvests and replants, sows farmland that is already there, and harvests cane, bamboo, cactus and berries, but it never tills and never plants anything on open ground. It shows no icon for the missing hoe.
 
-The toolsmith makes a hoe for every farmer, so by default every field grows. To choose which fields grow yourself, turn off `toolsmithMakesHoes` (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})): the toolsmith then leaves hoes to you, and only a farmer you give a hoe to, on its shelf, grows its field. A small farm you tilled yourself stays that size with a farmer you give no hoe.
+The toolsmith makes a hoe for every farmer, so by default every field grows. To choose which fields grow yourself, turn off `toolsmithMakesHoes` (see [Configuration](/customization/configuration/)): the toolsmith then leaves hoes to you, and only a farmer you give a hoe to, on its shelf, grows its field. A small farm you tilled yourself stays that size with a farmer you give no hoe.
 
 **Consumables:**
 
@@ -42,7 +40,14 @@ The toolsmith makes a hoe for every farmer, so by default every field grows. To 
 
 It replants from its own harvest and needs nothing else to farm. An empty plot gets the crop most of the plots around it grow, so a gap in a row of carrots gets a carrot and rows extend themselves. **A tie, or a plot with nothing around it, gets the crop the field has the fewest plots of**, and then the one the farmer carries the most of, so no single crop takes over the field. A crop whose harvest gives no seed, like Farmer's Delight tomatoes, is replanted from its produce: when a plot needs one, the farmer makes tomato seeds from its tomatoes, and only then, **as many as all its waiting plots need in one go**, rotten tomatoes first. Rotten tomatoes it has no plot for are composted once the field is full. A farmer carrying no seed at all sows an empty plot from the first of its produce that makes one, and tills new ground for a crop its field already grows. It tills beside its crops first, so rows grow outward. **A field of several crops spreads every one of them**: open ground goes to the crop most of the plots around it grow, so ground beside its wheat is tilled for wheat and ground beside its bamboo gets a bamboo. It keeps back one seed for each plot of farmland standing empty, and **one of each crop for every plot of open ground in its field that crop could go on**: ground it can till, for a crop grown on farmland, and ground a cane, bamboo, cactus or berry bush will stand on. Nothing it can still plant is surplus. It counts only plots it can get to, and keeps nothing for open ground without a hoe. **Its customers and its open ground share what it has, half and half**: a butcher waiting for feed gets half of what the farmer carries beyond replanting, and more if the field needs less. Only what neither can use goes to storage. It leaves the squares around a melon or pumpkin stem you plant empty, so the stem has room for its fruit. Gold nuggets are the one thing you can add: with nuggets on its shelf the farmer turns its own melon slices into **glistering melon slices** for the cleric, which a master farmer already sells. Without them it simply grows melons. **The same nuggets make golden carrots** for a Chef's kitchen, from its own carrots, eight nuggets to a carrot, while the kitchen has room for them: every nugget on its shelf goes, so a stack makes eight. A cleric waiting for glistering melon slices gets the nuggets first. **Golden carrots and glistering melon slices only ever go to their customers**: villagers never share or eat them, and with no customer waiting for them they go to storage.
 
-**With [More Villagers at Work]({{ site.baseurl }}{% link more-villagers.md %}) installed**, it brings a Chef's kitchen the crops its meals are made from, up to a stack of each, once its customers' shelves are seen to and before storage. **It bakes bread for the Chef** from its wheat, three wheat to a loaf, only while the Chef's kitchen has room for bread.
+**With [More Villagers at Work](/more-villagers/) installed**, it brings a Chef's kitchen the crops its meals are made from, up to a stack of each, once its customers' shelves are seen to and before storage. **It bakes bread for the Chef** from its wheat, three wheat to a loaf, only while the Chef's kitchen has room for bread, and brings it 8 loaves at a time.
+
+**It fuels the workstations around it with its bamboo.**
+
+- Once it has 16 bamboo, it puts them straight into the fuel slot of the nearby workstation with the least fuel, such as a smoker or a blast furnace. With several equal, it picks one at random.
+- Only workstations with a shelf attached, unless you turn on `fuelStationsWithoutShelf` (see [Configuration](/customization/configuration/)). A plain furnace is no workstation, so yours are left alone.
+- A slot holding another fuel, such as coal, gets no bamboo until it burns out.
+- While a workstation has room for fuel, it keeps its bamboo rather than storing it.
 
 **Suppliers:**
 
@@ -51,12 +56,12 @@ It replants from its own harvest and needs nothing else to farm. An empty plot g
 
 **Customers:** 
 
-| Butcher | Crops for feed Bamboo for fuel |
+| Butcher | Crops for feed, and bamboo into its smoker |
 | :---- | :---- |
 | Cartographer | Sugar cane |
-| Armorer | Bamboo for fuel |
+| Armorer | Bamboo, into its blast furnace |
 | Cleric | Glistering melon slices |
-| [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Crops, bread, mushrooms, golden carrots |
-| [Beekeeper]({{ site.baseurl }}{% link more-villagers/beekeeper.md %}) | Bone meal |
+| [Chef](/more-villagers/chef/) | Crops, bread, mushrooms, golden carrots |
+| [Beekeeper](/more-villagers/beekeeper/) | Bone meal |
 
 Cactus and bamboo are planted from what the farmer is carrying, the same way cane is, and go in looking the way you would have placed them: bamboo as a green shoot, not a bare stick.

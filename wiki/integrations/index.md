@@ -1,9 +1,8 @@
 ---
 title: Integrations
-nav_order: 6
-has_children: true
+sidebar:
+  label: Overview
+  order: 0
 ---
-
-# Integrations
 
 How the mod works with other mods.

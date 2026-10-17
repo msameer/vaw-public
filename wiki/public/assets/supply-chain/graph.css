@@ -1,0 +1,82 @@
+/* The supply chain graphs (graph.js): a square stage of villagers and deliveries, and a side column. */
+* { box-sizing: border-box; }
+/* Light and dark (graph.js sets data-theme from the wiki around it, else the system's). */
+:root {
+  --bg: #ffffff;
+  --text: #27262b;
+  --muted: #6e6a75;
+  --soft: #5c5962;
+  --item: #3f3d44;
+  --faint: #8a8690;
+  --accent: #a86b0f;
+  --panel: #f7f7f9;
+  --border: #e6e1e8;
+  --c-organic: #1f8a52; --f-organic: #eaf6ef;
+  --c-metal: #a86b0f; --f-metal: #fbf2e2;
+  --c-craft: #2f6fbf; --f-craft: #e9f1fb;
+  --c-gear: #c24f3c; --f-gear: #fbeae7;
+  --c-guard: #b8453a; --f-guard: #fcebe8;
+  --c-more: #7a4fb5; --f-more: #f1ebf9;
+}
+:root[data-theme="dark"] {
+  --bg: #17181c;
+  --text: #e8e6ec;
+  --muted: #a29eaa;
+  --soft: #b5b1bc;
+  --item: #d4d1da;
+  --faint: #8d8994;
+  --accent: #e2a84f;
+  --panel: #202127;
+  --border: #33343c;
+  --c-organic: #4fc68b; --f-organic: #15281d;
+  --c-metal: #e2a84f; --f-metal: #2e2412;
+  --c-craft: #6ea8f2; --f-craft: #16233a;
+  --c-gear: #f07f6b; --f-gear: #341b17;
+  --c-guard: #ec7a6c; --f-guard: #341a17;
+  --c-more: #b591f2; --f-more: #271d38;
+}
+:root { color-scheme: light; } :root[data-theme="dark"] { color-scheme: dark; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Space Grotesk', system-ui, sans-serif; }
+/* Side by side only when the graph keeps most of the width; in the wiki's column it stacks, the graph first. */
+.page { padding: 40px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: 40px; align-items: start; }
+.graph-col { min-width: 0; max-width: 1000px; width: 100%; justify-self: center; }
+@media (max-width: 999px) { .page { grid-template-columns: minmax(0, 1fr); gap: 28px; } .side { max-width: none; } }
+@media (max-width: 600px) { .page { padding: 16px; } }
+.stage { position: relative; width: 100%; aspect-ratio: 1 / 1; container-type: inline-size; }
+.edges { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.edge { transition: opacity .2s; }
+.node {
+  position: absolute; cursor: pointer; width: 15%; height: 6.4%; transform: translate(-50%, -50%);
+  padding: 0.4cqw 0.6cqw; border-radius: 1cqw; border: 2px solid; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px; text-align: center; transition: opacity .2s, box-shadow .2s;
+}
+.node .name { font-size: 1.5cqw; font-weight: 600; line-height: 1.1; white-space: nowrap; }
+.node .station { font-family: 'IBM Plex Mono', monospace; font-size: 1.05cqw; line-height: 1.2; color: var(--muted); }
+.edge-label {
+  display: none; position: absolute; pointer-events: none; white-space: nowrap; transform: translate(-50%, -50%);
+  padding: 0.1cqw 0.6cqw; border-radius: 0.3cqw; background: var(--bg); font-family: 'IBM Plex Mono', monospace; font-size: 1.3cqw;
+}
+.side { min-width: 0; display: flex; flex-direction: column; gap: 28px; max-width: 420px; }
+.head { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.title { font-size: 40px; line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; }
+.panel, .legend { display: flex; flex-direction: column; padding: 22px 24px; border: 1px solid var(--border); border-radius: 4px; background: var(--panel); }
+.panel { gap: 20px; }
+.panel[hidden] { display: none; }
+.focus { display: flex; flex-direction: column; gap: 4px; }
+.focus-name { font-size: 24px; font-weight: 700; }
+.focus-station { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted); }
+.focus-shelf { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); }
+.block { display: flex; flex-direction: column; gap: 10px; }
+.caps { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.row { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 15px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.item { color: var(--item); }
+.other { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.none { font-size: 14px; color: var(--faint); }
+.legend { gap: 11px; font-size: 14px; color: var(--item); }
+.legend .caps { margin-bottom: 4px; }
+.legend-row { display: flex; align-items: center; gap: 12px; }
+.swatch { width: 26px; height: 3px; flex: 0 0 auto; }
+.stock { color: var(--accent); }
+.diamond { width: 26px; text-align: center; flex: 0 0 auto; }

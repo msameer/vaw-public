@@ -1,10 +1,8 @@
 ---
 title: Allays
-parent: Other entities
-nav_order: 3
+sidebar:
+  order: 3
 ---
-
-# Allays
 
 With `haulingMode` set to `allays`, allays become your village's couriers.
 

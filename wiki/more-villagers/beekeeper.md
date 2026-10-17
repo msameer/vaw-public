@@ -1,10 +1,8 @@
 ---
 title: Beekeeper
-parent: More Villagers at Work
-nav_order: 2
+sidebar:
+  order: 2
 ---
-
-# Beekeeper
 
 Keeps the village's bees: it **harvests honey and honeycomb** from the beehives around its own, **grows flowers** for the bees, and **breeds bees** while the hives have room. It needs no other mod.
 
@@ -21,7 +19,13 @@ Keeps the village's bees: it **harvests honey and honeycomb** from the beehives 
 
 A hive full of honey gives a **honey bottle** whenever the beekeeper has a bottle. A water bottle is poured away first, and the bottle used. Without bottles it takes **honeycomb** with its shears.
 
-**Its bottles go round the village.** With a [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) in the village, its honey bottles go to the kitchen for meals made with honey, and the Chef brings the empty bottles to the beekeeper's shelf, up to 16, whenever the shelf has room for them. You can put bottles on its shelf yourself too. The Chef keeps four honey bottles; the rest goes to storage. The bees are never angered, and the hive fills again at its usual pace.
+**A campfire under a hive**, for realism:
+
+- The beekeeper lights it before it harvests that hive, and waits a moment for the smoke.
+- It puts it out once the hive has no honey for it, and as work ends.
+- A hive over a campfire takes a shelf and makes a beekeeper like any other.
+
+**Its bottles go round the village.** With a [Chef](/more-villagers/chef/) in the village, its honey bottles go to the kitchen for meals made with honey, and the Chef brings the empty bottles to the beekeeper's shelf, up to 16, whenever the shelf has room for them. You can put bottles on its shelf yourself too. The Chef keeps four honey bottles; the rest goes to storage. The bees are never angered, and the hive fills again at its usual pace.
 
 ## Flowers
 
@@ -65,11 +69,12 @@ It buys nothing. It sells candles, beehives and blocks without making them: its 
 | Toolsmith | Shears |
 | :---- | :---- |
 | Farmer | Bone meal, up to 16, even before you have put any on the shelf |
-| [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Glass bottles: the empty ones its honey came in; and the bone meal it cuts from fish, up to 16, even before you have put any on the shelf |
+| [Chef](/more-villagers/chef/) | Glass bottles: the empty ones its honey came in; and the bone meal it cuts from fish, up to 16, even before you have put any on the shelf |
 | Shepherd | Beekeeper's hats |
+| [Lumberjack](/more-villagers/lumberjack/) | Bone meal, from its own composter |
 | Player | Glass bottles, if you like |
 
 **Customers:**
 
-| [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Honey bottles |
+| [Chef](/more-villagers/chef/) | Honey bottles |
 | :---- | :---- |

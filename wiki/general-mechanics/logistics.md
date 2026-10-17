@@ -1,10 +1,8 @@
 ---
 title: Logistics
-parent: General Mechanics
-nav_order: 2
+sidebar:
+  order: 2
 ---
-
-# Logistics
 
 Villagers produce items as they do their job either by harvesting, fishing, crafting, or smelting. If any of their products are needed by other villagers, the villager holds the items in their internal inventory and delivers them to their customer’s shelf’s slot that needs a refill or top-up. On the way it carries the item in its hand in place of its tool, where the mod on a player's game, or MCA Reborn, draws it. Surplus goes to storage.  
 Harvesting and fishing are ongoing activities. Crafting and smelting are on demand.
@@ -24,21 +22,26 @@ Harvesting and fishing are ongoing activities. Crafting and smelting are on dema
 | Fletcher | Feathers | 64 |
 | Librarian | Paper | 64 |
 | Cleric | Rotten flesh | 64 |
-| Butcher, armorer | Fuel | 64 |
 | Toolsmith | Iron, copper and other tool materials | 16 |
 | Everyone else | Everything else | One job's worth |
 
 **A trip is worth it from the min order up.** A villager walks over only with at least that many: half the cap when the cap is 16 or more, and the whole cap below that. It holds on to a smaller amount until it has more, and never puts it in storage meanwhile. **When its inventory is full or its working day ends, it delivers whatever it has**, so a shelf that ran out is restocked by the end of the day at the latest.
 
-**A bottle goes by itself.** Bottles are rare, so a villager takes even one glass bottle, water bottle, potion or honey bottle where it is going straight away, to a shelf or to a Chef's kitchen.
+**A bottle goes by itself.** Bottles are rare, so a villager takes even one glass bottle, water bottle, potion or honey bottle where it is going straight away, to a shelf, a cleric's brewing stand or a Chef's kitchen.
 
-**Fuel goes in a real load during the day.** A delivery of fuel carries at least as much as burns for as long as one coal: a coal or charcoal is enough, but bamboo goes 32 at a time, half a stack. A bamboo burns out in a quarter of the time an ingot takes to smelt, so one or two delivered would smelt nothing. **When the working day ends, whatever there is goes, fuel included**: a farmer with 20 bamboo gives them to the armorer waiting for fuel rather than putting them away.
+**Fuel goes into the workstation, never onto a shelf.**
 
-You can change any cap or min order, per item, with `restockCaps` and `restockMinOrders` (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})).
+- The farmer puts its bamboo straight into the fuel slot of a smoker, blast furnace or other workstation that burns fuel, 16 at a time, the one with the least fuel first.
+- Fuel on any shelf goes into its workstation, and what doesn't fit goes to storage.
+- The fisherman's water bottles go straight into a cleric's brewing stand the same way.
+
+You can change any cap or min order, per item, with `restockCaps` and `restockMinOrders`, and the farmer's load of bamboo with `stationFuelLoad` (see [Configuration](/customization/configuration/)).
 
 ## Villager Inventory
 
 Every villager has internal inventory. Once the villager’s inventory is full, the villager looks for a permanent storage to deposit their products and empty their inventory, otherwise, the villager stops working.
+
+- **Seeds never go to storage.** The farmer composts its spare seeds; the butcher puts the seeds it picks up on its shelf; any other worker keeps the seeds it picks up.
 
 ## Workstation Inventory
 

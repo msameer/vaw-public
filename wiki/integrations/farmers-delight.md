@@ -1,10 +1,8 @@
 ---
 title: "Farmer's Delight"
-parent: Integrations
-nav_order: 1
+sidebar:
+  order: 1
 ---
-
-# Farmer's Delight
 
 Supported throughout, touching three professions.
 
@@ -21,4 +19,4 @@ Supported throughout, touching three professions.
 
 **Toolsmith** — makes knives for farmers and butchers, and no axes for butchers.
 
-**The Chef** — with [More Villagers at Work]({{ site.baseurl }}{% link more-villagers.md %}), a profession of its own that works at a Farmer's Delight cabinet and cooks its feasts and pies on its stoves, from what the farmer, the butcher and the fisherman bring. See [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}).
+**The Chef** — with [More Villagers at Work](/more-villagers/), a profession of its own that works at a Farmer's Delight cabinet and cooks its feasts and pies on its stoves, from what the farmer, the butcher and the fisherman bring. See [Chef](/more-villagers/chef/).

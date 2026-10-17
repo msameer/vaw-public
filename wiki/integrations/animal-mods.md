@@ -1,10 +1,8 @@
 ---
 title: Animal Mods
-parent: Integrations
-nav_order: 3
+sidebar:
+  order: 3
 ---
-
-# Animal Mods
 
 **Alex's Mobs** and similar are supported through tags rather than mod-specific code, so either Fabric continuation works identically.
 

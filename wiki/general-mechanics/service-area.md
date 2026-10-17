@@ -1,10 +1,8 @@
 ---
 title: Service Area
-parent: General Mechanics
-nav_order: 5
+sidebar:
+  order: 5
 ---
-
-# Service Area
 
 A working villager provides two services, and each reaches a distance of its own from its workstation:
 
@@ -23,7 +21,7 @@ A villager is supplied the same way: a producer delivers to it if it is within t
 | Toolsmith | Smithing table | At the workstation. The stations whose missing tools it forges must be within its delivery range | 48 blocks |
 | Librarian | Lectern | At the workstation. The shelves it takes enchanted books to must be within its delivery range | 48 blocks |
 | Cartographer | Cartography table | At the workstation | 48 blocks |
-| Cleric | Brewing stand | At the workstation. Hurt villagers come to its brewing stand from up to 48 blocks away (see [Healing]({{ site.baseurl }}{% link general-mechanics/healing.md %})) | 48 blocks |
+| Cleric | Brewing stand | At the workstation. Hurt villagers come to its brewing stand from up to 48 blocks away (see [Healing](/general-mechanics/healing/)) | 48 blocks |
 | Weaponsmith | Grindstone | At the workstation, with its armory beside it | 48 blocks |
 | Fletcher | Fletching table | At the workstation, with its armory beside it | 48 blocks |
 | Leatherworker | Cauldron | At the workstation, with its armory beside it | 48 blocks |
@@ -32,12 +30,12 @@ The weaponsmith, fletcher and leatherworker work in any world. Their armories ar
 
 A few other ranges are fixed rather than set here. A hauler, allay or villager, empties workstation containers and fills storage within 48 blocks of itself. A village child runs errands for stations within 24 blocks of itself. An MCA guard looks for gear in armories within 48 blocks of itself.
 
-**Animals and water are shared out, never shared.** Two butchers whose work ranges overlap never manage the same species, and each animal belongs to the nearest one with room for it (see [Animals]({{ site.baseurl }}{% link other-entities/animals.md %})). Moving an animal out of every butcher's range protects it, though a name tag is surer.
+**Animals and water are shared out, never shared.** Two butchers whose work ranges overlap never manage the same species, and each animal belongs to the nearest one with room for it (see [Animals](/other-entities/animals/)). Moving an animal out of every butcher's range protects it, though a name tag is surer.
 
 ## Changing them
 
 **Work range** is set in `serviceAreas` in the core config, by the workstation's block id. A workstation from another mod that stands in for a vanilla one works the range of its profession's vanilla workstation unless you give it its own.
 
-**Delivery range** is `depositRange`, one value for every profession. Vanilla pathfinding fails quietly on long routes, so raise it with care (see [Logistics]({{ site.baseurl }}{% link general-mechanics/logistics.md %})).
+**Delivery range** is `depositRange`, one value for every profession. Vanilla pathfinding fails quietly on long routes, so raise it with care (see [Logistics](/general-mechanics/logistics/)).
 
-Both are described in [Configuration]({{ site.baseurl }}{% link customization/configuration.md %}).
+Both are described in [Configuration](/customization/configuration/).

@@ -1,10 +1,8 @@
 ---
 title: Healing
-parent: General Mechanics
-nav_order: 4
+sidebar:
+  order: 4
 ---
-
-# Healing
 
 Vanilla villagers never heal. A villager hurt by a zombie, a fall or a stray arrow stays hurt for the rest of its life unless you throw a potion at it yourself.
 
@@ -29,7 +27,7 @@ A villager that drops to **half health or below** walks to the nearest brewing s
 | Healing | 2 hearts, instantly |
 | Regeneration | 9 hearts, over 45 seconds |
 
-A villager has 10 hearts, so regeneration is much the better of the two — but healing is the one the village can keep making on its own, because the farmer grows the melons for it. See [Cleric]({{ site.baseurl }}{% link supply-chain/cleric.md %}).
+A villager has 10 hearts, so regeneration is much the better of the two — but healing is the one the village can keep making on its own, because the farmer grows the melons for it. See [Cleric](/supply-chain/cleric/).
 
 ## Who goes for a potion
 
@@ -53,8 +51,8 @@ A villager that cannot reach the stand — a door shut, a wall built — gives u
 
 Water bottles come out of the fisherman's junk catch, roughly one cast in a hundred, so an infirmary fills over days rather than minutes. That is the point. Villagers rarely get hurt in vanilla, and the supply is rare to match.
 
-If you want it faster, put water bottles on the cleric's shelf yourself, as you can with any shelf.
+If you want it faster, put water bottles in the cleric's brewing stand yourself.
 
 ## With MCA Reborn
 
-MCA villagers are not helpless the way vanilla ones are: they mend slowly on their own, and a hurt villager carrying food will eat it. The infirmary still earns its place. Mending at that rate takes minutes, a well-traded MCA villager has a far deeper health bar to refill, and a guard walking out of a raid cannot wait that long — so guards go for a potion before they go for armour. See [MCA Reborn]({{ site.baseurl }}{% link integrations/mca-reborn.md %}).
+MCA villagers are not helpless the way vanilla ones are: they mend slowly on their own, and a hurt villager carrying food will eat it. The infirmary still earns its place. Mending at that rate takes minutes, a well-traded MCA villager has a far deeper health bar to refill, and a guard walking out of a raid cannot wait that long — so guards go for a potion before they go for armour. See [MCA Reborn](/integrations/mca-reborn/).

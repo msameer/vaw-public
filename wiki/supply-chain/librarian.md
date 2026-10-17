@@ -1,10 +1,8 @@
 ---
 title: Librarian
-parent: Supply Chain
-nav_order: 9
+sidebar:
+  order: 9
 ---
-
-# Librarian
 
 Creates enchanted books, which every other making profession can use to enchant what it produces.
 

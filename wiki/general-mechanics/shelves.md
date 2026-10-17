@@ -1,10 +1,8 @@
 ---
 title: Shelves
-parent: General Mechanics
-nav_order: 1
+sidebar:
+  order: 1
 ---
-
-# Shelves
 
 The shelf is the heart of the mod.
 

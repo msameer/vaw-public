@@ -1,10 +1,9 @@
 ---
 title: Progression
-nav_order: 3
-has_children: true
+sidebar:
+  label: Overview
+  order: 0
 ---
-
-# Progression
 
 The mod has a natural arc that follows your world's own progression.
 
@@ -16,4 +15,4 @@ The mod has a natural arc that follows your world's own progression.
 
 Each tier **removes a cost** rather than adding a mechanic, so there is nothing new to learn at any step.
 
-In a single-player world, the mod's own advancements tab marks the same arc as it happens: see [Advancements]({{ site.baseurl }}{% link progression/advancements.md %}).
+In a single-player world, the mod's own advancements tab marks the same arc as it happens: see [Advancements](/progression/advancements/).

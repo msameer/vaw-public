@@ -1,0 +1,65 @@
+/* A table after a bold label ("Tools:") has no header row: its first row is data (wiki.js), so it is
+   drawn like the rows below it. */
+.sl-markdown-content .vaw-headerless thead th {
+  font-weight: inherit;
+  color: inherit;
+  background: transparent;
+}
+/* The supply-chain graph's frame spans the column, or the main pane where wiki.js widens it. */
+.sl-markdown-content iframe.vaw-fit-frame {
+  display: block;
+  max-width: none;
+}
+
+/* On a wide screen every page is one block 1366 pixels wide (--vaw-block) in the middle of the page,
+   with an equal gutter either side: the header's contents, the sidebar, the text column and the
+   outline, where a page has one. Starlight instead pins the sidebar to the left edge and centres the
+   text on what is left. The text column takes what the sidebar and the outline leave, the outline
+   being slimmer than Starlight's (--vaw-toc-width) to leave the text more. Without an outline it is
+   1018 pixels, past the 1000 at which a supply-chain graph puts its legend beside it (graph.css)
+   rather than below. The gutter is a share of
+   whatever box it is used in, each of them as wide as the page without its scroll bar. */
+:root {
+  --vaw-block: 85.375rem;
+  --vaw-toc-width: 15rem;
+  --sl-content-width: calc(var(--vaw-block) - var(--sl-sidebar-width) - 2 * var(--sl-content-pad-x));
+}
+:root[data-has-toc] {
+  --sl-content-width: calc(
+    var(--vaw-block) - var(--sl-sidebar-width) - var(--vaw-toc-width) - 2 * var(--sl-content-pad-x)
+  );
+}
+@media (min-width: 72rem) {
+  :root[data-has-sidebar] {
+    --vaw-gutter: max(0rem, (100% - var(--vaw-block)) / 2);
+    --sl-content-inline-start: calc(var(--vaw-gutter) + var(--sl-sidebar-width));
+    --sl-content-margin-inline: 0;
+  }
+  :root[data-has-sidebar] header.header {
+    padding-inline: calc(var(--vaw-gutter) + var(--sl-nav-pad-x));
+  }
+  :root[data-has-sidebar] header.header > .header {
+    --sl-content-inline-start: var(--sl-sidebar-width);
+  }
+  :root[data-has-sidebar] .sidebar-pane {
+    inset-inline-start: var(--vaw-gutter);
+    border-inline-start: 1px solid var(--sl-color-hairline-shade);
+  }
+  :root[data-has-sidebar] .main-pane {
+    max-width: calc(var(--vaw-block) - var(--sl-sidebar-width));
+  }
+}
+/* An outlined page is the block only where the whole block fits; narrower, Starlight shares the width
+   out as usual. */
+@media (min-width: 85.375rem) {
+  :root[data-has-sidebar][data-has-toc] .main-pane {
+    width: calc(var(--sl-content-width) + 2 * var(--sl-content-pad-x));
+  }
+  :root[data-has-sidebar][data-has-toc] .right-sidebar-container,
+  :root[data-has-sidebar][data-has-toc] .right-sidebar {
+    width: var(--vaw-toc-width);
+  }
+  :root[data-has-sidebar][data-has-toc] .right-sidebar {
+    border-inline-end: 1px solid var(--sl-color-hairline-shade);
+  }
+}

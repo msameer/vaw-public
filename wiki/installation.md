@@ -1,9 +1,6 @@
 ---
 title: Installation / Uninstallation
-nav_order: 9
 ---
-
-# Installation / Uninstallation
 
 Villagers at Work is a Fabric mod, and on Minecraft 26.1.2 it runs on NeoForge too, through Sinytra Connector ([below](#on-neoforge)). Everything it does runs on the server, so players with a vanilla game can join a server that has it, Bedrock players included. The mod is one jar for the server and for a player's game alike; everything else here is optional.
 
@@ -13,9 +10,9 @@ Villagers at Work is a Fabric mod, and on Minecraft 26.1.2 it runs on NeoForge t
 | :---- | :---- | :---- | :---- |
 | `vaw-<version>+<minecraft>.jar` | **The mod.** Every profession, hauling, the signals and the datapacks. On a player's own game it also draws the tool a villager works with in its hand, arms uncrossed and swinging as it works, and in its place whatever the villager is taking to a shelf; a server never loads that part, and a player without the mod sees the villagers work bare-handed. | Fabric Loader 0.19.3 or newer, Fabric API, Fabric Language Kotlin 1.13.14 or newer, Java 25. One jar for each Minecraft release: 26.1.2, 26.2 or 26.3. | The server, and your own game for single player or to see the tools in the villagers' hands. |
 | `vaw-human-era.zip`, `vaw-human-era-fa.zip` | **Optional.** Resource packs for [Human Era](https://modrinth.com/resourcepack/human-era-villagers-illagers) villagers: they swing their tools, hold out the item they are trading, and dress More Villagers at Work's Chef and beekeeper in their clothes, which come out scrambled on Human Era's villagers without them. The second is for Human Era's Fresh Animations add-on. They have their own project, [Villagers at Work - Human Era Villagers Compat](https://www.curseforge.com/minecraft/texture-packs/vaw-hevi-compat), because they are versioned by Human Era rather than by the mod. | Human Era, Entity Model Features, and the mod on the player's game. | A player's own `resourcepacks/` folder, **above** Human Era. |
-| `vaw-after-work-<version>+<minecraft>.jar` | **Optional.** [Villagers after Work]({{ site.baseurl }}{% link after-work.md %}), a separate mod: the village's evening, with dinner at its campfires, rest on its cushions, and children at bedtime. | The mod itself, and what it needs. One jar for each Minecraft release. | Beside the mod: the server, or your own game for single player. |
-| `vaw-more-<version>+<minecraft>.jar` | **Optional.** [More Villagers at Work]({{ site.baseurl }}{% link more-villagers.md %}), a separate mod: professions of its own, the Chef and the beekeeper. | The mod itself, and [Farmer's Delight](https://modrinth.com/mod/farmers-delight-refabricated) for the Chef: without it there is no Chef. One jar for each Minecraft release. | Beside the mod, **on the server and on every player's game**: players cannot join a server that has it without it. |
-| `vaw-mca-<version>+<minecraft>.jar` | **Optional.** The [MCA Reborn]({{ site.baseurl }}{% link integrations/mca-reborn.md %}) extension, from its own project, [Villagers at Work - MCA Reborn Extension](https://www.curseforge.com/minecraft/mc-mods/villagers-at-work-mca-reborn-extension), where its source is published beside the jar as an additional download. It is GPLv3, as MCA Reborn is; the mod itself is not. | MCA Reborn 8.1.11 or newer, and the mod itself. One jar for 26.1.2 and one for 26.2, the releases MCA Reborn itself supports; there is none for 26.3 until MCA has one. | Wherever MCA Reborn is installed: the server, and every player's game. |
+| `vaw-after-work-<version>+<minecraft>.jar` | **Optional.** [Villagers after Work](/after-work/), a separate mod: the village's evening, with dinner at its campfires, rest on its cushions, and children at bedtime. | The mod itself, and what it needs. One jar for each Minecraft release. | Beside the mod: the server, or your own game for single player. |
+| `vaw-more-<version>+<minecraft>.jar` | **Optional.** [More Villagers at Work](/more-villagers/), a separate mod: professions of its own, the Chef and the beekeeper. | The mod itself, and [Farmer's Delight](https://modrinth.com/mod/farmers-delight-refabricated) for the Chef: without it there is no Chef. One jar for each Minecraft release. | Beside the mod, **on the server and on every player's game**: players cannot join a server that has it without it. |
+| `vaw-mca-<version>+<minecraft>.jar` | **Optional.** The [MCA Reborn](/integrations/mca-reborn/) extension, from its own project, [Villagers at Work - MCA Reborn Extension](https://www.curseforge.com/minecraft/mc-mods/villagers-at-work-mca-reborn-extension), where its source is published beside the jar as an additional download. It is GPLv3, as MCA Reborn is; the mod itself is not. | MCA Reborn 8.1.11 or newer, and the mod itself. One jar for 26.1.2 and one for 26.2, the releases MCA Reborn itself supports; there is none for 26.3 until MCA has one. | Wherever MCA Reborn is installed: the server, and every player's game. |
 
 Farmer's Delight needs no jar of its own: its support is built into the mod and turns itself on when Farmer's Delight is installed.
 
@@ -42,7 +39,7 @@ Two things are Fabric only for now:
 
 ## Villager breeders
 
-With Villagers after Work installed, villagers have children only at night, two well-fed villagers in beds side by side (see [Villagers after Work]({{ site.baseurl }}{% link after-work.md %})). A villager breeder built for the game without the mod stops breeding. Turn off `bedtimeBreeding` to keep it working (see [Configuration]({{ site.baseurl }}{% link customization/configuration.md %})).
+With Villagers after Work installed, villagers have children only at night, two well-fed villagers in beds side by side (see [Villagers after Work](/after-work/)). A villager breeder built for the game without the mod stops breeding. Turn off `bedtimeBreeding` to keep it working (see [Configuration](/customization/configuration/)).
 
 ## Uninstallation
 

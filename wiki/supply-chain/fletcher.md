@@ -1,10 +1,8 @@
 ---
 title: Fletcher
-parent: Supply Chain
-nav_order: 7
+sidebar:
+  order: 7
 ---
-
-# Fletcher
 
 Makes arrows or bows for its armory, where MCA archer guards take them — but not both at once. Three shelf slots will not hold the ingredients for both, so a village that wants both builds two fletching tables.
 
@@ -33,6 +31,7 @@ A fletcher making bows can use an **armor stand** as its armory instead of a che
 | :---- | :---- |
 | Fisherman | Sticks, Strings |
 | Shepherd | Strings |
+| [Lumberjack](/more-villagers/lumberjack/) | Sticks |
 | The player | Flint |
 
 **Customers:** 

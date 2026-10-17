@@ -1,9 +1,6 @@
 ---
 title: Success and Error indicators
-nav_order: 8
 ---
-
-# Success and Error indicators
 
 The mod tells you what it is doing without you ever opening a menu.
 

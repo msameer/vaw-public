@@ -1,10 +1,8 @@
 ---
 title: Configuration
-parent: Customization
-nav_order: 1
+sidebar:
+  order: 1
 ---
-
-# Configuration
 
 Each jar has its own file in the game's `config` folder, created with its defaults the first time the game or server starts. The files are read at start only, so **restart after editing**.
 
@@ -33,14 +31,16 @@ Every option is written into the file with its default and a comment explaining 
 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
-| `restockCaps` | empty | 1–1024 per item | How many of an item a customer's shelf is filled to, by item id or by tag, such as `{"minecraft:wheat": 32, "#vaw:fuel": 32}`. The shelf asks for more whenever it holds less. An item's own entry wins over its tag's. An item you leave out keeps its usual cap (see *General Mechanics → Logistics*). |
-| `restockMinOrders` | `{"minecraft:coal": 1, "minecraft:charcoal": 1}` | 1–1024 per item | The least of an item a villager carries to a shelf, by item id or tag, so the walk is worth it. A smaller amount waits until it has more, its inventory is full, or work ends. An item you leave out takes half its cap when the cap is 16 or more, and the whole cap below that. |
+| `restockCaps` | empty | 1–1024 per item | How many of an item a customer's shelf is filled to, by item id or by tag, such as `{"minecraft:wheat": 32, "#vaw:animal_feed": 8}`. The shelf asks for more whenever it holds less. An item's own entry wins over its tag's. An item you leave out keeps its usual cap (see *General Mechanics → Logistics*). |
+| `restockMinOrders` | empty | 1–1024 per item | The least of an item a villager carries to a shelf, by item id or tag, so the walk is worth it. A smaller amount waits until it has more, its inventory is full, or work ends. An item you leave out takes half its cap when the cap is 16 or more, and the whole cap below that. |
+| `stationFuelLoad` | `16` | 1–64 | How much bamboo the farmer carries before it puts it in a workstation's fuel slot. |
+| `fuelStationsWithoutShelf` | `false` | true/false | Lets the farmer also put its bamboo in workstations that burn fuel and have no shelf attached, such as the smoker of a villager the mod does not put to work. Off, only workstations with a shelf attached get fuel. A plain furnace is no workstation, so yours are left alone either way. |
 
 ### Service areas
 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
-| `serviceAreas` | `{"minecraft:composter": 4, "minecraft:smoker": 16, "minecraft:loom": 16, "minecraft:barrel": 8}` | 1–64 per workstation | How far, in blocks, a villager works around its workstation, by the workstation's block id: the farmer's field around its composter (4 is a 9×9), the animals around a butcher's smoker or a shepherd's loom, and the water around a fisherman's barrel. A workstation you leave out keeps its default. Larger areas cost the server more to scan, the farmer's most of all. See *General Mechanics → Service Area*. |
+| `serviceAreas` | `{"minecraft:composter": 4, "minecraft:smoker": 16, "minecraft:loom": 16, "minecraft:barrel": 8}` | 1–64 per workstation | How far, in blocks, a villager works around its workstation, by the workstation's block id: the farmer's field around its composter (4 is a 9×9), the animals around a butcher's smoker or a shepherd's loom, and the water around a fisherman's barrel. With More Villagers at Work, `vaw_more:chopping_block` is the lumberjack's trees, 8 by default, eight trees 8 blocks apart; at 16 it plants 24 trees. A workstation you leave out keeps its default. Larger areas cost the server more to scan, the farmer's most of all. See *General Mechanics → Service Area*. |
 
 `serviceAreas` replaces `workstationRange` and `fishingRange`. A file that still has them has their values carried over into `serviceAreas` the first time it loads, and the old options are removed.
 
@@ -68,7 +68,7 @@ It changes how much of its time a villager works, never how fast it works once i
 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
-| `cullPauseTicks` | `40` | 0–200 | How long, in ticks, a butcher stands at its smoker with the animal before killing it. `0` kills the moment it arrives. |
+| `cullPauseTicks` | `20` | 0–200 | How long, in ticks, a butcher stands at its smoker with the animal before killing it, and the longest it waits by the fence for an animal that does not come. `0` kills the moment it arrives. |
 | `speciesPerAnimalWorker` | `2` | 1–8 | How many species one butcher manages. |
 | `perSpeciesFloor` | `4` | 0–64 | How many adults of each species a butcher keeps: it culls those above it once there is nothing to feed. `0` lets a butcher cull a species to extinction. |
 | `breedOnlyButchers` | `false` | true/false | Lets a butcher with feed and no culling tool breed its animals and never cull them, for a cramming farm; the toolsmith then leaves it without a tool. Off, a butcher without its culling tool breeds nothing and shows the tool it is missing until the toolsmith makes it one. |
@@ -89,7 +89,7 @@ It changes how much of its time a villager works, never how fast it works once i
 | `allowedEnchantments` | `["*"]` | enchantment ids | Enchantments a librarian may put on books. `"*"` allows every enchantment. |
 | `clericUseVanillaRates` | `false` | `true`, `false` | Use vanilla's trade rates for the cleric's rotten flesh to lapis exchange. |
 | `clericLapisPerStack` | `9` | 1–64 | Lapis made from a stack of rotten flesh when `clericUseVanillaRates` is `false`: about 7 flesh per lapis, against vanilla's 32. |
-| `traderPrices` | `{}` | item id → 1–64 emeralds | What the village pays the wandering trader, for example `{"minecraft:raw_iron": 2}`. Empty uses the prices in the datapack (see [Datapacks]({{ site.baseurl }}{% link customization/datapacks.md %})). |
+| `traderPrices` | `{}` | item id → 1–64 emeralds | What the village pays the wandering trader, for example `{"minecraft:raw_iron": 2}`. Empty uses the prices in the datapack (see [Datapacks](/customization/datapacks/)). |
 
 
 ### Signals and performance
@@ -118,7 +118,7 @@ Only with the More Villagers at Work jar installed. It is written and read as th
 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
-| `chefMilkingRange` | `48` | 1–64 | How far from its cabinet, in blocks, the [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) looks for a cow, goat or mooshroom to milk: a box this far each way, above and below as well as around, like a butcher's around its smoker. Vanilla pathfinding fails quietly on long routes, so raise it past 48 with care. |
+| `chefMilkingRange` | `48` | 1–64 | How far from its cabinet, in blocks, the [Chef](/more-villagers/chef/) looks for a cow, goat or mooshroom to milk: a box this far each way, above and below as well as around, like a butcher's around its smoker. Vanilla pathfinding fails quietly on long routes, so raise it past 48 with care. |
 
 ## MCA extension: `config/villagers-at-work-mca.json`
 

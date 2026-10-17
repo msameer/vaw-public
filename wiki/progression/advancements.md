@@ -1,10 +1,8 @@
 ---
 title: Advancements
-parent: Progression
-nav_order: 1
+sidebar:
+  order: 1
 ---
-
-# Advancements
 
 Villagers at Work has its own advancements tab. It follows your village as it grows: the first ones teach you how the mod works, and the rest mark each supply chain as it starts running.
 
@@ -56,6 +54,7 @@ Both lines follow the `announceAdvancements` gamerule.
 | Healing | **Gilded** | A farmer makes a glistering melon slice for a cleric |
 | Healing | **Healthy Village** | A hurt villager drinks a potion from a cleric's brewing stand |
 | | **All Hands** | All twelve professions are at work at once |
+| | **Required Reading** | You own every book a village teacher sells (see [School](/general-mechanics/school/)) |
 
 **With the MCA Reborn extension**, four more join the same tab:
 

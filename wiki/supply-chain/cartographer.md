@@ -1,10 +1,8 @@
 ---
 title: Cartographer
-parent: Supply Chain
-nav_order: 3
+sidebar:
+  order: 3
 ---
-
-# Cartographer
 
 Makes paper of sugar cane (as papers are one of its trade in vanilla Minecraft).
 

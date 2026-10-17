@@ -1,6 +1,6 @@
 /*
  * A supply chain graph (wiki: Supply Chain, MCA Reborn, More Villagers at Work). The page sets
- * window.GRAPH before loading this: { eyebrow, title, intro, nodes, edges, legend }.
+ * window.GRAPH before loading this: { eyebrow, title, nodes, edges, legend }. No text under the title (#174, the owner's rule): the room goes to the graph.
  *
  * nodes: [id, name, station, category, what the player stocks on its shelf (optional)]
  * edges: [from, to, what, category], drawn from the wiki's supplier and customer tables. An edge
@@ -11,8 +11,22 @@
  * middle. Hover or click a villager to see what it takes in and sends out.
  */
 (function () {
-  var COLOR = { organic: '#1f8a52', metal: '#a86b0f', craft: '#2f6fbf', gear: '#c24f3c', guard: '#b8453a', more: '#7a4fb5' };
-  var FILL = { organic: '#eaf6ef', metal: '#fbf2e2', craft: '#e9f1fb', gear: '#fbeae7', guard: '#fcebe8', more: '#f1ebf9' };
+  // Each category's line and fill, from graph.css, which holds a light and a dark set.
+  var COLOR = {}, FILL = {};
+  ['organic', 'metal', 'craft', 'gear', 'guard', 'more'].forEach(function (c) { COLOR[c] = 'var(--c-' + c + ')'; FILL[c] = 'var(--f-' + c + ')'; });
+
+  // Light or dark as the wiki around the graph is, following its theme switch, else as the system is.
+  var system = window.matchMedia('(prefers-color-scheme: dark)');
+  function wikiRoot() {
+    try { return window.parent !== window ? window.parent.document.documentElement : null; } catch (e) { return null; }
+  }
+  function applyTheme() {
+    var root = wikiRoot(), theme = root && root.dataset.theme;
+    document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (system.matches ? 'dark' : 'light');
+  }
+  applyTheme();
+  if (wikiRoot()) new MutationObserver(applyTheme).observe(wikiRoot(), { attributes: true, attributeFilter: ['data-theme'] });
+  system.addEventListener('change', applyTheme);
   var LEGEND = {
     organic: 'Crops and animal goods',
     metal: 'Metal and tools',
@@ -74,7 +88,6 @@
   var head = el('div', { class: 'head' }, side);
   el('div', { class: 'eyebrow' }, head, g.eyebrow);
   el('div', { class: 'title' }, head, g.title);
-  el('div', { class: 'intro' }, head, g.intro.replace('{villagers}', nodes.length).replace('{deliveries}', edges.length));
   var panel = el('div', { class: 'panel', hidden: '' }, side);
   var legend = el('div', { class: 'legend' }, side);
   el('div', { class: 'caps' }, legend, 'Legend');
@@ -90,8 +103,8 @@
   var drawn = edges.filter(function (e) { return e.from !== e.to; }).map(function (e) {
     var geo = geometry(e);
     var group = el('g', { class: 'edge' }, svg);
-    var path = el('path', { d: geo.d, fill: 'none', stroke: COLOR[e.cat], 'stroke-width': 1.6, 'stroke-linecap': 'round' }, group);
-    el('polygon', { points: geo.head, fill: COLOR[e.cat] }, group);
+    var path = el('path', { d: geo.d, fill: 'none', style: 'stroke:' + COLOR[e.cat], 'stroke-width': 1.6, 'stroke-linecap': 'round' }, group);
+    el('polygon', { points: geo.head, style: 'fill:' + COLOR[e.cat] }, group);
     var label = el('div', { class: 'edge-label', style: 'left:' + geo.mid[0] / 10 + '%;top:' + geo.mid[1] / 10 + '%;color:' + COLOR[e.cat] }, stage, e.what);
     return { e: e, group: group, path: path, label: label };
   });
@@ -140,7 +153,7 @@
     boxes.forEach(function (b) {
       var c = COLOR[b.n.cat];
       b.box.style.opacity = focus && !near[b.n.id] ? 0.25 : 1;
-      b.box.style.boxShadow = selected === b.n.id || hover === b.n.id ? '0 0 0 3px #ffffff, 0 0 0 5px ' + c : 'none';
+      b.box.style.boxShadow = selected === b.n.id || hover === b.n.id ? '0 0 0 3px var(--bg), 0 0 0 5px ' + c : 'none';
     });
 
     panel.textContent = '';

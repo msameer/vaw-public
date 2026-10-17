@@ -1,10 +1,8 @@
 ---
 title: Toolsmith
-parent: Supply Chain
-nav_order: 11
+sidebar:
+  order: 11
 ---
-
-# Toolsmith
 
 Makes tools for other villagers, on demand. It watches nearby workstations, and when a station's shelf is missing its tool, it forges one and delivers it.
 
@@ -28,6 +26,7 @@ It makes hoes and Farmer's Delight knives for farmers, and culling tools for but
 
 | Player | Planks |
 | :---- | :---- |
+| [Lumberjack](/more-villagers/lumberjack/) | Planks, sticks |
 | Armorer | Ingots |
 | Fisherman | Sticks |
 
@@ -36,5 +35,6 @@ It makes hoes and Farmer's Delight knives for farmers, and culling tools for but
 | Farmer | Hoe, Farmer Delights Knife |
 | :---- | :---- |
 | Butcher | Farmer Delights Knife, or Axe without Farmer’s Delight |
-| [Chef]({{ site.baseurl }}{% link more-villagers/chef.md %}) | Bucket, Farmer's Delight Knife |
-| [Beekeeper]({{ site.baseurl }}{% link more-villagers/beekeeper.md %}) | Shears |
+| [Chef](/more-villagers/chef/) | Bucket, Farmer's Delight Knife |
+| [Beekeeper](/more-villagers/beekeeper/) | Shears |
+| [Lumberjack](/more-villagers/lumberjack/) | Axe |
