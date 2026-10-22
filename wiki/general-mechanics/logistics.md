@@ -49,7 +49,7 @@ Some workstations have internal inventory. In vanilla, the fisherman’s barrel 
 
 ## Buffer Chests
 
-**A plain chest touching a workstation** is a local drop-off. Buffer chests work the same way as the workstation inventory but have priority. They also provide a solution for workstations without internal inventory. Haulers empty buffer chests into permanent storage.
+**A plain chest touching a workstation** is a local drop-off, and so is a Macaw's drawer or cabinet. Buffer chests work the same way as the workstation inventory but have priority. They also provide a solution for workstations without internal inventory. Haulers empty buffer chests into permanent storage.
 
 ## Armory
 

@@ -25,6 +25,7 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:shelves` | Blocks that count as a shelf when placed against a workstation. | The twelve vanilla shelves |
 | `vaw:chests` | Chests that bind to a workstation, as a buffer, an armory or a terminal. | Chest, trapped chest, `#minecraft:copper_chests` |
 | `vaw:storage_targets` | Village storage when standing alone, and a terminal when touching a workstation. The block must hold items. | `#minecraft:copper_chests` |
+| `vaw:buffer_storage_targets` | Storage that is a buffer, as a plain chest is, when touching a workstation, not a terminal. Also needs `vaw:chests` to bind. | None; Macaw's drawers and cabinets in its pack |
 | `vaw:workstation_containers` | Workstations with an inventory of their own: villagers deposit into it, haulers empty it. | Barrel |
 | `vaw:leash_phaseable` | Blocks a leashed animal passes through while it stays shut, such as another mod's gates. | `#minecraft:fence_gates` |
 | `vaw:seat_blocks` | Blocks a villager sits on, such as another mod's chairs: at a table or a campfire with Villagers after Work, and at a school. After work it also lies across two side by side, and leans back only on a wool carpet; on any other block here it sits upright. `vaw_after_work:seat_blocks` still works and is included. | Carpets |
@@ -43,9 +44,12 @@ Add to a tag the vanilla way, with a file at `data/vaw/tags/<block|item|entity_t
 | `vaw:fuel` | Fuel a worker moves off its shelf into its workstation, such as a blast furnace or a smoker. Vanilla decides how long each burns. | Coal and charcoal, bamboo, dried kelp blocks, blaze rods |
 | `vaw:station_fuel` | Fuel the farmer puts straight into workstations' fuel slots. | Bamboo |
 | `vaw:crop_items` | Items a farmer picks up when they lie in its field. | Vanilla crops, their seeds and cuttings, and Farmer's Delight's when it is installed |
+| `vaw:butcher_pickup` | What a butcher picks up when it lies in its area. | Eggs of every kind, and raw and cooked meat; with Alex's Mobs, its emu eggs |
 | `vaw:bottles` | Bottles: one is worth a trip, so a villager never waits to carry more of them to a shelf or a Chef's kitchen. | Glass bottles, potions (water bottles among them), honey bottles, and Farmer's Delight's milk bottle |
 | `vaw_more:two_by_two_saplings` | With More Villagers at Work: saplings the lumberjack plants only four together, on a 2×2 square, since one alone never grows. | Dark oak and pale oak saplings |
 | `vaw_more:chef_never_converts` | With More Villagers at Work: what the Chef only puts into a meal that takes it as it is, never into another ingredient. Its cabinet still takes it for those meals. | Honey bottles, so honey never becomes sugar |
+| `vaw_after_work:displayed_foods`, `vaw_after_work:plated_foods`, `vaw_after_work:small_plated_foods` | With Villagers after Work: another mod's foods set on dinner tables as a player sets them, alone, piled on a plate, or on a small plate. | Display Delight's |
+| `vaw_after_work:plates`, `vaw_after_work:small_plates` | With Villagers after Work: the plates those foods stand on. | Display Delight's |
 | `vaw:villager_reserve` | What a villager keeps for itself and never deposits or delivers. The farmer and the butcher have rules of their own, and with the MCA extension MCA villagers keep only seeds. | Bread, carrots, potatoes, beetroots, wheat, and the seeds villagers plant |
 
 ### Entity types
@@ -270,6 +274,47 @@ For a guard mod (see [Extension API](/customization/extension-api/)). Used only 
 { "guard_type": "mca:archer", "suppliers": ["minecraft:leatherworker", "minecraft:fletcher"] }
 ```
 
-## The bundled Farmer's Delight pack
+### `evening_light`: which lights villagers light after work
 
-Villagers at Work comes with a built-in datapack for Farmer's Delight, on by default. Every file in it loads only when Farmer's Delight is installed, so without it the pack does nothing. It teaches the farmer to harvest rice, tomatoes and tomatoes on ropes, and to till Rich Soil. It can be turned off like any other datapack.
+With Villagers after Work.
+
+| Field | Required | What it does |
+| :---- | :---- | :---- |
+| `block` | yes | The light, a block or a `#tag` of blocks. A file naming the block itself wins over one naming a tag it is in. |
+| `property` | yes | The block state property that lights it, such as `lit`. |
+| `evening` | yes | The property's value when lit, or a list of values: villagers set the first, and any of them counts as lit. |
+| `night` | yes | Its value when out, or a list, the same way. |
+
+```json
+{ "block": "#minecraft:candles", "property": "lit", "evening": "true", "night": "false" }
+```
+
+### `window_cover`: which shutters and windows villagers close at night
+
+With Villagers after Work.
+
+| Field | Required | What it does |
+| :---- | :---- | :---- |
+| `block` | yes | The shutter, blind or window, a block or a `#tag` of blocks. A file naming the block itself wins over one naming a tag it is in. |
+| `property` | yes | The block state property that closes it, such as `open`. |
+| `night` | yes | The property's value when closed for the night, or a list of values: villagers set the first, and any of them counts as closed. |
+| `day` | yes | Its value by day, or a list, the same way. A value in neither is left alone, such as a locked window. |
+| `on_glass` | no | `true` for a block that counts only with glass on the side it closes against, as a trapdoor on a window. |
+
+```json
+{ "block": "#minecraft:wooden_trapdoors", "property": "open", "night": "true", "day": "false", "on_glass": true }
+```
+
+```json
+{ "block": "#mcwwindows:windows_four", "property": "windowstate", "night": "closed", "day": ["open_left", "open_right"] }
+```
+
+## The bundled packs
+
+Villagers at Work comes with built-in datapacks for other mods, on by default. Each does nothing without its mod, and can be turned off like any other datapack.
+
+| Pack | What it does |
+| :---- | :---- |
+| Farmer's Delight | The farmer harvests rice, tomatoes and tomatoes on ropes, and tills Rich Soil. |
+| Alex's Mobs | Bison, emus and gazelles are farm animals; the butcher picks up emu eggs. |
+| Macaw's Furniture | Its chairs, stools, couches and chaises are seats; its drawers, wardrobes and cabinets are storage, and a station's drop-off when touching it. |

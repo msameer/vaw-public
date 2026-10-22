@@ -28,6 +28,13 @@ Items on the shelf also determine the activities done by the butcher:
 
 **It works the herd over the fence, and the animal it picked comes over to it.** When the animal it means to feed or cull is too far inside a big pen to reach, that one animal walks over to the fence where the butcher is heading, and the rest of the herd stays where it is: nothing is held out to draw them. Once it is fed, or on its lead, it is free to wander off again. If that animal cannot get to the fence, walled in or boxed in by the herd, the butcher leaves it alone for a while (`unreachableCooldownTicks`) and takes another of the same kind, since any one will do, or gets on with its other species and its eggs.
 
+**It picks up eggs and meat lying in its area**, raw or cooked, once its herd needs nothing.
+
+- Eggs of every kind, chickens' and Alex's Mobs' emus' alike.
+- It leaves one pocket slot free for its next cull.
+- A Chef's kitchen gets what it has room for; the rest goes to storage.
+- Anything else lying there, such as a feather, it leaves alone.
+
 **Seeds it picks up go on its shelf**, as much as fits: when it has no animal ready to eat them, and all of them when work ends. What does not fit stays in its pockets.
 
 Which species it tends is decided by what feed you stock — wheat means cows, sheep or goats; carrots mean pigs or rabbits. The last item of each feed stays on the shelf to say so, and is never fed, so a butcher down to its last wheat breeds nothing and shows wheat above its head until the farmer brings more.
@@ -46,7 +53,7 @@ To cull, the butcher **brings the animal to the smoker**: small animals like rab
 
 - Storage gets the meat the Chef has no room for, raw.
 - All of one meat goes into the smoker at once, as much as the fuel there cooks.
-- When the batch is done it takes it out, puts the next kind in, and takes the smoked meat to the Chef, with any raw meat the Chef takes. **It smokes as much of each meat as the Chef's meals take smoked**: of the Chef's feasts and pies that take a meat raw or cooked, the share that take it cooked is the share it smokes, and the rest it brings raw. With one meal needing smoked ham and two needing raw ham, a third of its ham is smoked. With Farmer's Delight alone, the honey-glazed ham, the roast chicken and the shepherd's pie take their meat cooked, so all its ham, chicken and mutton is smoked, and the eggs, which the roast chicken and the cake take raw, are never smoked. A meat no meal takes, beef or pork, is smoked and stored as before, and so is all of it with no Chef. With Villagers after Work, its dinner stays raw for the campfire. **It picks up the eggs laid in its area** while a Chef's kitchen has room for eggs, and takes them there.
+- When the batch is done it takes it out, puts the next kind in, and takes the smoked meat to the Chef, with any raw meat the Chef takes. **It smokes as much of each meat as the Chef's meals take smoked**: of the Chef's feasts and pies that take a meat raw or cooked, the share that take it cooked is the share it smokes, and the rest it brings raw. With one meal needing smoked ham and two needing raw ham, a third of its ham is smoked. With Farmer's Delight alone, the honey-glazed ham, the roast chicken and the shepherd's pie take their meat cooked, so all its ham, chicken and mutton is smoked, and the eggs, which the roast chicken and the cake take raw, are never smoked. A meat no meal takes, beef or pork, is smoked and stored as before, and so is all of it with no Chef. With Villagers after Work, its dinner stays raw for the campfire.
 
 **Tools:** 
 

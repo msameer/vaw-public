@@ -15,7 +15,7 @@ Cooks Farmer's Delight's **meals you can place on a table**: feasts such as roas
 | Shelf | **Its tools**: a bucket and a Farmer's Delight knife, and the cooking pot and skillet you give it. |
 | Stoves | **Its cooking.** Every Farmer's Delight stove touching the cabinet, on any of its four sides. It lights one when it cooks on it, and puts them all out when work ends. |
 
-**It cooks only meals that stand on a table**, never a bowl meal such as a stew, and **makes everything that leads to one, as much as one of each meal takes.** Whenever it can make a meal that is wanted, it makes it, picking one at random among those it can, so a pantry with more kinds of food gives more kinds of meals. Otherwise it makes the next thing a meal takes, however many steps back, even when no meal is wanted: it bakes potatoes on a stove, or in a skillet standing on one, cooks rice in the pot, bakes pie crusts, dries kelp, and with a cutting board cuts fish into slices and rolls them. Each goes into its pantry for the next recipe, so in time it has everything a meal takes. It makes first what it has least of, and makes nothing it already has enough of for one of each meal, or has no room for. Meals made in the pot, such as a stuffed pumpkin, need the pot: put it on its shelf or on one of its stoves. **One of the pot and the skillet is always on a stove, and the other on its shelf**: it swaps them when it needs the other, never has both on its stoves, and leaves them as they are when work ends. With only one of them, it keeps it on a stove, and takes a pot off its only stove just while it grills there.
+**It cooks only meals that stand on a table**, never a bowl meal such as a stew (but see [With Display Delight](#with-display-delight)), and **makes everything that leads to one, as much as one of each meal takes.** Whenever it can make a meal that is wanted, it makes it, picking one at random among those it can, so a pantry with more kinds of food gives more kinds of meals. Otherwise it makes the next thing a meal takes, however many steps back, even when no meal is wanted: it bakes potatoes on a stove, or in a skillet standing on one, cooks rice in the pot, bakes pie crusts, dries kelp, and with a cutting board cuts fish into slices and rolls them. Each goes into its pantry for the next recipe, so in time it has everything a meal takes. It makes first what it has least of, and makes nothing it already has enough of for one of each meal, or has no room for. Meals made in the pot, such as a stuffed pumpkin, need the pot: put it on its shelf or on one of its stoves. **One of the pot and the skillet is always on a stove, and the other on its shelf**: it swaps them when it needs the other, never has both on its stoves, and leaves them as they are when work ends. With only one of them, it keeps it on a stove, and takes a pot off its only stove just while it grills there.
 
 **Its stoves go out when work ends.** Anything still cooking on a stove or in the skillet stays there, and the Chef lights the stove again the next day to finish it; near the end of work it starts no skillet batch it can't finish in time.
 
@@ -32,6 +32,14 @@ It keeps **one meal** ready: in its cabinet, or set out on top of another cabine
 It cooks for the village's [dinner tables](/after-work/#dinner-tables) instead, and keeps nothing back for you: **a meal for every place on a table**. They wait in its cabinet until the evening, when it carries them out and sets the tables. **Before it goes to bed it clears the empty trays** off the tables and takes their bowls back to its cabinet, so the tables are bare in the morning; an empty tray still there when it gets up it clears first thing, before work, and one it cannot get to it clears the next evening as it sets the tables.
 
 **With no table near its kitchen, it keeps one meal ready** in its cabinet, as it does without Villagers after Work, rather than cooking nothing, but never sets it out on another cabinet. Once you build a table, that meal goes on it in the evening with the rest, and it cooks for every place again.
+
+## With Display Delight
+
+- **Its foods are table meals too**: stews and soups set alone, and burgers, sandwiches, kebabs and cookies piled on a plate, up to six.
+- **The Chef cooks them** as it cooks its feasts and pies, so its menu takes in most of Farmer's Delight's foods.
+- **It makes its plates from bowls**: a bowl makes a plate, and two bowls make four small plates. It keeps as many bowls as plates and as small plates.
+- **Diners leave their bowls at the table**, and the Chef takes them back with the empty plates before bed.
+- Display Delight is for Minecraft 26.1 and 26.2.
 
 ## Its clothes and hat
 
@@ -57,7 +65,7 @@ It sells **every meal its kitchen could make** and milk bottles, at **one emeral
 
 | Farmer | Crops, and bread it bakes for the chef |
 | :---- | :---- |
-| Butcher | Meat, and the eggs its chickens lay |
+| Butcher | Meat, and the eggs it finds in its area |
 | Fisherman | Fish, bowls and water bottles |
 | Shepherd | Chef's hats |
 | Toolsmith | Bucket, Farmer's Delight Knife |
