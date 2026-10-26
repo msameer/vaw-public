@@ -106,7 +106,7 @@ Only with the Villagers after Work jar installed. It is written and read as the 
 | Option | Default | Range | What it does |
 | :---- | :---- | :---- | :---- |
 | `afterWorkRange` | `32` | 8–64 | How far from itself, in blocks, a villager looks after work for campfires, jukeboxes, bells, cushions and seats. Each is a place of its own; there is no area to set up. |
-| `outdoorLightRange` | `16` | 1–32 | How far from a dinner campfire, or a seat at a table or around a campfire, a lamp under the open sky may be and still be lit after work and put out at bedtime. |
+| `outdoorLightRange` | `16` | 1–32 | How far from a dinner campfire, a seat at a table or around a campfire, or a workstation, a lamp under the open sky may be and still be lit after work and put out in the morning. |
 | `indoorLightRange` | `6` | 1–32 | The same for a candle or lamp under a roof, kept short so the lights in your own houses are left as you set them. It replaces `eveningLightRange`: a setting you changed carries over. |
 | `windowRange` | `6` | 1–16 | How far from its bed a shutter or blind may be and still be a villager's to close before bed and open in the morning. |
 | `musicGatherers` | `6` | 1–64 | How many villagers at most stand around a playing jukebox. Once every seat, campfire side, the jukebox and the bell are full, the rest share the jukebox and the bell evenly. |

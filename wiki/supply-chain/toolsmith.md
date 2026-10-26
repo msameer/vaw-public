@@ -36,5 +36,4 @@ It makes hoes and Farmer's Delight knives for farmers, and culling tools for but
 | :---- | :---- |
 | Butcher | Farmer Delights Knife, or Axe without Farmer’s Delight |
 | [Chef](/more-villagers/chef/) | Bucket, Farmer's Delight Knife |
-| [Beekeeper](/more-villagers/beekeeper/) | Shears |
 | [Lumberjack](/more-villagers/lumberjack/) | Axe |

@@ -1,7 +1,7 @@
 ---
 title: MCA Reborn
 sidebar:
-  order: 2
+  order: 3
 ---
 
 Integration with MCA Reborn is a separate extension. If Installed it adds the following functionality:

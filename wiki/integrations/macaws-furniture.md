@@ -1,7 +1,7 @@
 ---
 title: "Macaw's Furniture"
 sidebar:
-  order: 4
+  order: 5
 ---
 
 Supported out of the box: villagers sit on its seats and store in its cupboards.

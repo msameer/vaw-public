@@ -1,7 +1,7 @@
 ---
 title: Animal Mods
 sidebar:
-  order: 3
+  order: 4
 ---
 
 **Alex's Mobs** and similar are supported through tags rather than mod-specific code, so either Fabric continuation works identically.

@@ -16,18 +16,19 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 | Jukebox | Villagers gather around it while it plays. With music discs on a shelf beside it, they play them in the evening and put them back at bedtime. |
 | Cushion, carpet | A seat, but only at a table or around a campfire: any other is decoration. Two side by side around a campfire are for lying back. Cushions need 26.3. |
 | Shutter, blind, window | Closed at night by the villager whose bed is within 6 blocks (`windowRange`), opened in the morning, blinds all the way up. Wooden trapdoors count only on a window, against its glass, and Macaw's Windows' shutters, blinds and windows that open. A window locked with its key stays locked. |
-| Candle, lamp | Lit for the evening, if near a campfire or a seat: within 16 blocks under the open sky (`outdoorLightRange`), within 6 under a roof (`indoorLightRange`), so your own houses are left alone. Candles, candle cakes, and every Macaw's Lights light with an on and off, such as its lamps, lava lamps, street lamps and candle holders. |
+| Candle, lamp | Lit for the evening and kept lit all night, if near a campfire, a seat or a workstation: within 16 blocks under the open sky (`outdoorLightRange`), within 6 under a roof (`indoorLightRange`), so your own houses are left alone. Candles, candle cakes, and every Macaw's Lights light with an on and off, such as its lamps, lava lamps, street lamps and candle holders. |
 
 - **Seats from furniture mods** can be added with the `vaw:seats` and `vaw:seat_blocks` tags (see [Datapacks](/customization/datapacks/)).
 
 ## Dinner
 
-- **Campfires are lit when work ends**, by the first villagers to arrive. Villagers never step on a campfire or right beside it.
-- **So are the candles and lamps near them**, outdoor ones within 16 blocks of a campfire or a seat and indoor ones within 6, each villager going to any unlit one. Lights further away are left as you set them.
+- **Campfires are lit when work ends**, each by the villager nearest it. Villagers never step on a campfire or right beside it.
+- **So are the candles and lamps near them and near workstations**, outdoor ones within 16 blocks of a campfire, a seat or a workstation and indoor ones within 6, each by the villager nearest it. Lights further away are left as you set them.
 - **A campfire seats four**, one on each side, two blocks out. A diner sits if there is a seat there, and stands if not.
 - **The butcher, the fisherman and the farmer cook**, spreading their food over the campfires. Each diner eats the piece on its side when it is done.
 - **Each diner gets food it eats**: with MCA Reborn, a vegetarian gets no meat or fish.
 - **Each cook keeps 8 food for dinner** (`dinnerFoodKept`), from what would have gone to storage, so orders come first. A farmer short of 8 bakes bread from its wheat.
+- **Only with a campfire to cook on**: with no campfire within 32 blocks, the butcher and the fisherman keep no dinner, and the farmer keeps only food it throws as it is.
 - **With a Chef's kitchen taking bread, all the farmer's bread goes to the Chef**: it keeps none for dinner and bakes none for it.
 - **With a [Chef](/more-villagers/chef/), the butcher and the fisherman give it half their dinner** as the evening begins.
 - **When work ends, workers store the food they carry**, except a cook's dinner.
@@ -48,10 +49,10 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 - **Each table block with a seat facing it is a place for a meal.** Meals stand on bottom slabs.
 - **The Chef sets every empty place when work ends**, spreading its meals round the tables when it has fewer than places, and clears the empty trays before bed or first thing in the morning. With no table near its kitchen, it keeps one meal ready instead.
 - **Hungry villagers eat at a set table before going to a campfire**, a bite or a serving at a time.
-- **Resting villagers sit at the tables too**, the hungrier the more often. A well-fed villager eats at most two bites in an evening.
+- **Resting villagers sit at the tables too**, the hungrier the more often. A well-fed villager eats at most two bites in an evening while anyone hungry is about; with nobody hungry about, the well fed finish the tables.
 - **With Display Delight, its foods are meals too**: the Chef sets a stew or a soup alone, and burgers, kebabs or cookies piled on a plate.
   - Each piece is a serving, eaten at the table.
-  - A diner leaves its bowl at the table, and the Chef takes the bowls and empty plates back before bed.
+  - A diner leaves its bowl or bottle at the table, and the Chef takes the bowls, bottles and empty plates back before bed.
 
 ## Food for everyone else
 
@@ -94,7 +95,7 @@ Villagers use what they find within 32 blocks of themselves (`afterWorkRange`).
 - **Villagers go to bed one by one**, up to a minute after bedtime.
 - **No villager keeps food overnight**: before bed it stores what it carries in the nearest chest within 48 blocks. (Only while `bedtimeBreeding` is on.)
 - **The last villager up puts out the campfires** once the food on them is done. A campfire left burning goes out by itself once everyone around it is in bed, and sleeping through the night puts them out too.
-- **The last villager up puts out the candles and lamps** near the fires and seats, as it does the campfires.
+- **The candles and lamps stay lit all night**, indoors and out, to keep monsters away, and the villager nearest each puts it out as it gets up in the morning.
 - **A villager lights the candle or lamp beside its bed** for three seconds before it lies down, then puts it out.
 - **Each villager closes the shutters, blinds and windows near its bed**, walking to each, and opens them again as it gets up.
 - **Records go back on the jukebox's shelf** at bedtime.

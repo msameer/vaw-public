@@ -66,7 +66,7 @@ It buys nothing. It sells candles, beehives and blocks without making them: its 
 
 **Suppliers:**
 
-| Toolsmith | Shears |
+| Shepherd | Shears |
 | :---- | :---- |
 | Farmer | Bone meal, up to 16, even before you have put any on the shelf |
 | [Chef](/more-villagers/chef/) | Glass bottles: the empty ones its honey came in; and the bone meal it cuts from fish, up to 16, even before you have put any on the shelf |

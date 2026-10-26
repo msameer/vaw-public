@@ -10,7 +10,7 @@ Shears sheep over the fence and deposits the wool. It claims up to eight sheep, 
 
 **With [More Villagers at Work](/more-villagers/) installed, it makes their hats**: the Chef's from five wool and the beekeeper's from four, of any colours, and always white. It makes them from the wool it carries, at its loom, whenever one of them has no hat, neither on its head nor in its pockets, then walks over and puts the hat on its head: one hat each, and no spare. While one of them needs a hat, it keeps that much wool for it, whatever the colours, rather than putting it in its chest.
 
-It makes its own shears from iron (vanilla trade), so iron on the shelf is as good as shears: it asks for shears and forges them from whatever iron the armorer brings.
+It makes its own shears from iron (vanilla trade), so iron on the shelf is as good as shears: it asks for shears and forges them from whatever iron the armorer brings. It forges a beekeeper's spare shears from the same iron and takes them to its shelf.
 
 **Tools:**
 
@@ -33,4 +33,4 @@ It makes its own shears from iron (vanilla trade), so iron on the shelf is as go
 | :---- | :---- |
 | Fisherman | String |
 | [Chef](/more-villagers/chef/) | Chef's hats |
-| [Beekeeper](/more-villagers/beekeeper/) | Beekeeper's hats |
+| [Beekeeper](/more-villagers/beekeeper/) | Beekeeper's hats, shears |

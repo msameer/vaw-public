@@ -4,16 +4,17 @@ sidebar:
   order: 1
 ---
 
-Cooks Farmer's Delight's **meals you can place on a table**: feasts such as roast chicken and shepherd's pie, pies and cakes, from what the village brings to its kitchen. It needs [Farmer's Delight](https://modrinth.com/mod/farmers-delight-refabricated): without it, More Villagers at Work runs with no Chef.
+Cooks Farmer's Delight's **meals you can place on a table**: feasts such as roast chicken and shepherd's pie, pies and cakes, and those of its [Delight addons](/integrations/delight-addons/), from what the village brings to its kitchen. It needs [Farmer's Delight](https://modrinth.com/mod/farmers-delight-refabricated): without it, More Villagers at Work runs with no Chef.
 
 ## The kitchen
 
 | Block | What it is for |
 | :---- | :---- |
 | Cabinet, with a shelf touching it | **The job site, and the pantry.** Any of Farmer's Delight's cabinets, but only with a shelf touching it, on top or on any side, as every station's shelf: a cabinet you keep things in never makes a chef, and a Chef whose cabinet has lost its shelf gives it up. Its ingredients and its finished meals are kept inside, and when its suppliers have filled every slot, the Chef carries what it cooks until there is room. |
-| Other cabinets touching it | **More pantry.** Any of Farmer's Delight's cabinets touching the Chef's, on a side, above or below, is part of its pantry, unless a shelf touches it too. |
+| Other cabinets touching it | **More pantry.** Farmer's Delight's cabinets in a row or stack touching the Chef's, on a side, above or below, are part of its pantry, up to 16, a stove or a basket in the row too, except one with a shelf touching it and any past it. |
 | Shelf | **Its tools**: a bucket and a Farmer's Delight knife, and the cooking pot and skillet you give it. |
 | Stoves | **Its cooking.** Every Farmer's Delight stove touching the cabinet, on any of its four sides. It lights one when it cooks on it, and puts them all out when work ends. |
+| Baskets | **Optional.** A Farmer's Delight basket in the row, or touching a stove or cutting board, catches what drops as usual, and the Chef cooks from what it caught. Nobody puts anything in it. |
 
 **It cooks only meals that stand on a table**, never a bowl meal such as a stew (but see [With Display Delight](#with-display-delight)), and **makes everything that leads to one, as much as one of each meal takes.** Whenever it can make a meal that is wanted, it makes it, picking one at random among those it can, so a pantry with more kinds of food gives more kinds of meals. Otherwise it makes the next thing a meal takes, however many steps back, even when no meal is wanted: it bakes potatoes on a stove, or in a skillet standing on one, cooks rice in the pot, bakes pie crusts, dries kelp, and with a cutting board cuts fish into slices and rolls them. Each goes into its pantry for the next recipe, so in time it has everything a meal takes. It makes first what it has least of, and makes nothing it already has enough of for one of each meal, or has no room for. Meals made in the pot, such as a stuffed pumpkin, need the pot: put it on its shelf or on one of its stoves. **One of the pot and the skillet is always on a stove, and the other on its shelf**: it swaps them when it needs the other, never has both on its stoves, and leaves them as they are when work ends. With only one of them, it keeps it on a stove, and takes a pot off its only stove just while it grills there.
 
@@ -37,8 +38,9 @@ It cooks for the village's [dinner tables](/after-work/#dinner-tables) instead, 
 
 - **Its foods are table meals too**: stews and soups set alone, and burgers, sandwiches, kebabs and cookies piled on a plate, up to six.
 - **The Chef cooks them** as it cooks its feasts and pies, so its menu takes in most of Farmer's Delight's foods.
+- **Its pantry takes what they need**, sticks for barbecue sticks and melon popsicles (sticks ready made, never logs or planks) and ink sacs for squid ink pasta among them, and with Ocean's Delight: Expanded straw for the rope its stuffed cod takes.
 - **It makes its plates from bowls**: a bowl makes a plate, and two bowls make four small plates. It keeps as many bowls as plates and as small plates.
-- **Diners leave their bowls at the table**, and the Chef takes them back with the empty plates before bed.
+- **Diners leave their bowls and bottles at the table**, and the Chef takes them back with the empty plates before bed.
 - Display Delight is for Minecraft 26.1 and 26.2.
 
 ## Its clothes and hat

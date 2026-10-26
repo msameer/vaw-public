@@ -23,7 +23,7 @@ Fells and replants the trees around its chopping block, and supplies the village
 
 - **It works a 17×17 around its block**, 8 blocks each way. Set a bigger one for `vaw_more:chopping_block` in `serviceAreas` (see [Configuration](/customization/configuration/)).
 - **A tree is logs touching leaves that grew there.** Leaves you place never count, so your builds are safe.
-- **The whole tree comes down at once**, logs and leaves, when it chops one. Only the lumberjack fells trees this way; you chop as in vanilla.
+- **The whole tree comes down at once**, logs and leaves, when it chops one, and topples to the ground away from the lumberjack. Only the lumberjack fells trees this way; you chop as in vanilla.
 - **It takes what an axe gets**: the logs, and the saplings, sticks and apples from the leaves.
 - **Leaves still near another tree's logs stay**, as vanilla keeps them.
 
